@@ -44,7 +44,7 @@ stages:
 
     - script: |
         rm -rf composer.lock
-        composer install --no-interaction --prefer-dist
+        composer install --no-scripts --no-interaction --prefer-dist
       workingDirectory: $(rootFolder)
       displayName: 'Composer installation'
 
