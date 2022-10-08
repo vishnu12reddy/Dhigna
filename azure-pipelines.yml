@@ -46,7 +46,7 @@ stages:
         rm -rf composer.lock
         composer install --no-interaction --prefer-dist
       workingDirectory: $(rootFolder)
-      displayName: 'Composer install'
+      displayName: 'Composer installation'
 
     - task: ArchiveFiles@2
       displayName: 'Archive files'
