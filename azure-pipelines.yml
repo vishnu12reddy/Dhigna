@@ -43,9 +43,9 @@ stages:
       displayName: 'Use PHP version $(phpVersion)'
 
     - script: |
-        rm composer.lock
-        composer config --global --auth github-oauth.github.com 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
-        composer install --no-scripts --no-interaction --prefer-dist
+        # rm composer.lock
+        # composer config --global --auth github-oauth.github.com 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
+        composer install --no-interaction --prefer-dist
       workingDirectory: $(rootFolder)
       displayName: 'Composer install '
 
