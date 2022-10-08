@@ -45,7 +45,7 @@ stages:
     - script: |
         rm composer.lock
         composer config --global --auth github-oauth.github.com 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
-        composer install
+        composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
       workingDirectory: $(rootFolder)
       displayName: 'Composer install '
 
