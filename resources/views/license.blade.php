@@ -116,7 +116,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>var s_host = "{{$_SERVER['REMOTE_ADDR']}}",base_url = "{{url('52cab7070ba5124895a63a3703f66893232')}}";</script>
-<script src="{{ asset('js/eventmie-pro.js') }}"></script>
+<script src="https://eventsuat.dhigna.com/js/eventmie-pro.js"></script>
 
 </body>
 </html>
