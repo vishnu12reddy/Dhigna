@@ -11,7 +11,7 @@
         }
     },
     "require": {
-        "php": "^8.0.2",
+        "php": "^8.0",
         "classiebit/eventmie-pro": "^1.8",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.19",
