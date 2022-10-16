@@ -10,6 +10,7 @@
     
 @section('content')
 
+
 <!--BANNER-->
 <section>
     <div class="lgx-banner event-poster background-tint" style="background-image: url({{ '/storage/'.$event['poster'] }});">
@@ -226,7 +227,9 @@
 </section>
 @endif
 
-
+<input type="hidden" id="profilename" name="profilename" value="{{ auth()->user()->name }}">
+<input type="hidden" id="profileemail" name="profileemail" value="{{ auth()->user()->email }}">
+<input type="hidden" id="profileaddress" name="profileaddress" value="{{ auth()->user()->address }}">
 {{-- CUSTOM --}}
 <!--SCHEDULE-->
 <section>
@@ -247,6 +250,7 @@
                 <div class="row">
                     <select-dates 
                         :event="{{ json_encode($event, JSON_HEX_APOS) }}" 
+                        :user="{{ json_encode(Auth::user(), JSON_HEX_APOS) }}"
                         :max_ticket_qty="{{ json_encode($max_ticket_qty, JSON_HEX_APOS) }}"
                         :login_user_id="{{ json_encode(\Auth::id(), JSON_HEX_APOS) }}"
                         :is_customer="{{ Auth::id() ? (Auth::user()->hasRole('customer') ? 1 : 0) : 1 }}"

@@ -978,4 +978,215 @@ class BookingsController extends Controller
 
     }
 
+    public function merchant_initial(Request $request)
+    {
+        $data = $request->all();
+         // check login user role
+         $status = $this->is_admin_organiser($request);
+
+         // organiser can't book other organiser event's tikcets but  admin can book any organiser events'tikcets for customer
+         if(!$status)
+         {
+             return response([
+                 'status'    => false,
+                 'url'       => route('eventmie.events_index'),
+                 'message'   => __('eventmie-pro::em.organiser_note_5'),
+             ], Response::HTTP_OK);
+         }
+ 
+         // 1. General validation and get selected ticket and event id
+         $data = $this->general_validation($request);
+         if(!$data['status'])
+             return error($data['error'], Response::HTTP_BAD_REQUEST);
+             
+         // 2. Check availability
+         $check_availability = $this->availability_validation($data);
+         if(!$check_availability['status'])
+             return error($check_availability['error'], Response::HTTP_BAD_REQUEST);
+ 
+         // 3. TIMING & DATE CHECK 
+         $pre_time_booking   =  $this->time_validation($data);    
+         if(!$pre_time_booking['status'])
+             return error($pre_time_booking['error'], Response::HTTP_BAD_REQUEST);
+ 
+         $selected_tickets   = $data['selected_tickets'];
+         $tickets            = $data['tickets'];
+ 
+         
+         $booking_date = $request->booking_date;
+ 
+         $params  = [
+             'customer_id' => $this->customer_id,
+         ];
+         // get customer information by customer id    
+         $customer   = $this->user->get_customer($params);
+ 
+         if(empty($customer))
+             return error($pre_time_booking['error'], Response::HTTP_BAD_REQUEST);     
+ 
+         $booking        = [];
+         $price          = 0;
+         $total_price    = 0; 
+         
+        
+         // organiser_price excluding admin_tax
+         $booking_organiser_price    = [];
+         $admin_tax                  = [];
+         foreach($selected_tickets as $key => $value)
+         {
+             $key = count($booking) == 0 ? 0 : count($booking);
+             
+             for($i = 1; $i <= $value['quantity']; $i++)
+             {
+                 $booking[$key]['customer_id']       = $this->customer_id;
+                 $booking[$key]['customer_name']     = $customer['name'];
+                 $booking[$key]['customer_email']    = $customer['email'];
+                 $booking[$key]['organiser_id']      = $this->organiser_id;
+                 $booking[$key]['event_id']          = $request->event_id;
+                 $booking[$key]['ticket_id']         = $value['ticket_id'];
+                 $booking[$key]['quantity']          = 1;
+                 $booking[$key]['status']            = 1; 
+                 $booking[$key]['created_at']        = Carbon::now();
+                 $booking[$key]['updated_at']        = Carbon::now();
+                 $booking[$key]['event_title']       = $data['event']['title'];
+                 $booking[$key]['event_category']    = $data['event']['category_name'];
+                 $booking[$key]['ticket_title']      = $value['ticket_title'];
+                 $booking[$key]['item_sku']          = $data['event']['item_sku'];
+                 $booking[$key]['currency']          = setting('regional.currency_default');
+ 
+                 $booking[$key]['event_repetitive']  = $data['event']->repetitive > 0 ? 1 : 0;
+ 
+                 // non-repetitive
+                 $booking[$key]['event_start_date']  = $data['event']->start_date;
+                 $booking[$key]['event_end_date']    = $data['event']->end_date;
+                 $booking[$key]['event_start_time']  = $data['event']->start_time;
+                 $booking[$key]['event_end_time']    = $data['event']->end_time;
+                 
+                 // repetitive event
+                 if($data['event']->repetitive)
+                 {
+                     $booking[$key]['event_start_date']  = $booking_date;
+                     $booking[$key]['event_end_date']    = $request->merge_schedule ? $request->booking_end_date : $booking_date;
+                     $booking[$key]['event_start_time']  = $request->start_time;
+                     $booking[$key]['event_end_time']    = $request->end_time;
+                 }
+                 
+                 foreach($tickets as $k => $v)
+                 {
+                     if($v['id'] == $value['ticket_id'])
+                     {
+                         $price       = $v['price'];
+                         break;
+                     }
+                 }
+                 $booking[$key]['price']         = $price * 1;
+                 $booking[$key]['ticket_price']  = $price;
+ 
+                 // call calculate price
+                 $params   = [
+                     'ticket_id'         => $value['ticket_id'],
+                     'quantity'          => 1,
+                 ];
+         
+                 // calculating net price
+                 $net_price    = $this->calculate_price($params);
+ 
+         
+                 $booking[$key]['tax']        = number_format((float)($net_price['tax']), 2, '.', '');
+                 $booking[$key]['net_price']  = number_format((float)($net_price['net_price']), 2, '.', '');
+                 
+                 // organiser price excluding admin_tax
+                 $booking_organiser_price[$key]['organiser_price']  = number_format((float)($net_price['organiser_price']), 2, '.', '');
+ 
+                 //  admin_tax
+                 $admin_tax[$key]['admin_tax']  = number_format((float)($net_price['admin_tax']), 2, '.', '');
+ 
+ 
+                 // if payment method is offline then is_paid will be 0
+                 if($request->payment_method == 'offline')
+                 {
+                     // except free ticket
+                     if(((int) $booking[$key]['net_price']))
+                         $booking[$key]['is_paid'] = 0;
+                 }
+                 else
+                 {
+                     $booking[$key]['is_paid'] = 1;  
+                 }
+ 
+                 $key++;
+             }
+             
+             
+         }
+        
+         // calculate commission 
+         $this->calculate_commission($booking, $booking_organiser_price, $admin_tax);
+ 
+         // if net price total == 0 then no paypal process only insert data into booking 
+         foreach($booking as $k => $v)
+         {
+             $total_price  += (float)$v['net_price'];
+             $total_price = number_format((float)($total_price), 2, '.', '');
+         }
+ 
+     
+     
+         // IF FREE EVENT THEN ONLY INSERT DATA INTO BOOKING TABLE 
+         // AND DON'T INSERT DATA INTO TRANSACTION TABLE 
+         // AND DON'T CALLING PAYPAL API
+        
+             $data = [
+                 'order_number' => time().rand(1,988),
+             ];
+
+             $data['txn_id']             = rand(1,9999);
+             $data['amount_paid']        =  $total_price;
+
+             $data['payment_status']     = 'paid';
+             $data['payer_reference']    = 'ccc';
+             $data['status']             = 1;
+             $data['created_at']         = Carbon::now();
+             $data['updated_at']         = Carbon::now();
+             $data['currency_code']      = setting('regional.currency_default');
+             $data['payment_gateway']    = 'merchant';
+             
+             // insert data of paypal transaction_id into transaction table
+             $flag                       = $this->transaction->add_transaction($data);
+ 
+             $data['transaction_id']     = $flag; // transaction Id
+             
+             $flag = $this->finish_booking($booking, $data);
+ 
+
+           
+             // in case of database failure
+             if(empty($flag))
+             {
+                 return error('Database failure!', Response::HTTP_REQUEST_TIMEOUT);
+             }
+ 
+             // redirect no matter what so that it never turns backreturn response
+             $msg = __('eventmie-pro::em.booking_success');
+             session()->flash('status', $msg);
+ 
+             // if customer then redirect to mybookings
+             $url = route('eventmie.mybookings_index');
+             
+             if(Auth::user()->hasRole('organiser'))
+                 $url = route('eventmie.obookings_index');
+             
+             if(Auth::user()->hasRole('admin'))
+                 $url = route('voyager.bookings.index');
+ 
+             return response([
+                 'status'    => true,
+                 'url'       => $url,
+                 'message'   => $msg,
+             ], Response::HTTP_OK);
+           
+         
+        
+    }
+
 }

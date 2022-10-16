@@ -1,17 +1,3 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/events_show_v1.9.js": "/js/events_show_v1.9.js",
-    "/js/bookings_organiser_v1.8.js": "/js/bookings_organiser_v1.8.js",
-    "/js/bookings_customer_v1.8.js": "/js/bookings_customer_v1.8.js",
-    "/js/events_manage_v1.8.js": "/js/events_manage_v1.8.js",
-    "/js/myevents_v1.8.js": "/js/myevents_v1.8.js",
-    "/js/organiser.js": "/js/organiser.js",
-    "/js/events_listing_v1.8.js": "/js/events_listing_v1.8.js",
-    "/js/welcome_v1.8.js": "/js/welcome_v1.8.js",
-    "/js/pos_bookings.js": "/js/pos_bookings.js",
-    "/js/scanner_bookings.js": "/js/scanner_bookings.js",
-    "/js/myguests.js": "/js/myguests.js",
-    "/js/sub_organizers.js": "/js/sub_organizers.js",
-    "/js/ticket_scan_v1.8.js": "/js/ticket_scan_v1.8.js",
-    "/js/manage_reviews.js": "/js/manage_reviews.js"
+    "/js/events_show_v1.9.js": "/js/events_show_v1.9.js"
 }
