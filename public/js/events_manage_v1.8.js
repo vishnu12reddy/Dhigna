@@ -4321,6 +4321,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
 
@@ -73551,97 +73554,97 @@ var render = function() {
                 1
               ),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [
-                  _vm._v(_vm._s(_vm.trans("em.offline_payment_info")) + " ")
-                ]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [
+                    _vm._v(_vm._s(_vm.trans("em.offline_payment_info")) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    staticStyle: { display: "none" },
+                    attrs: { rows: "3", name: "offline_payment_info" },
+                    domProps: { value: _vm.offline_payment_info }
+                  }),
+                  _vm._v(" "),
+                  _c("ckeditor", {
+                    model: {
                       value: _vm.offline_payment_info,
+                      callback: function($$v) {
+                        _vm.offline_payment_info = $$v
+                      },
                       expression: "offline_payment_info"
                     }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { rows: "3", name: "offline_payment_info" },
-                  domProps: { value: _vm.offline_payment_info },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.offline_payment_info = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "help text-mute" }, [
-                  _vm._v(_vm._s(_vm.trans("em.offline_payment_info_ie")))
-                ])
-              ]),
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "help text-mute" }, [
+                    _vm._v(_vm._s(_vm.trans("em.offline_payment_info_ie")))
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Bank Payment Info ")]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Bank Payment Info ")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    staticStyle: { display: "none" },
+                    attrs: { rows: "3", name: "bank_payment_info" },
+                    domProps: { value: _vm.bank_payment_info }
+                  }),
+                  _vm._v(" "),
+                  _c("ckeditor", {
+                    model: {
                       value: _vm.bank_payment_info,
+                      callback: function($$v) {
+                        _vm.bank_payment_info = $$v
+                      },
                       expression: "bank_payment_info"
                     }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { rows: "3", name: "bank_payment_info" },
-                  domProps: { value: _vm.bank_payment_info },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.bank_payment_info = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "help text-mute" }, [
-                  _vm._v("Instructions to show under Bank Payment Option")
-                ])
-              ]),
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "help text-mute" }, [
+                    _vm._v("Instructions to show under Bank Payment Option")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
-              _c("div", { staticClass: "form-group" }, [
-                _c("label", [_vm._v("Card Payment Info ")]),
-                _vm._v(" "),
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", [_vm._v("Card Payment Info ")]),
+                  _vm._v(" "),
+                  _c("textarea", {
+                    staticClass: "form-control",
+                    staticStyle: { display: "none" },
+                    attrs: { rows: "3", name: "card_payment_info" },
+                    domProps: { value: _vm.card_payment_info }
+                  }),
+                  _vm._v(" "),
+                  _c("ckeditor", {
+                    model: {
                       value: _vm.card_payment_info,
+                      callback: function($$v) {
+                        _vm.card_payment_info = $$v
+                      },
                       expression: "card_payment_info"
                     }
-                  ],
-                  staticClass: "form-control",
-                  attrs: { rows: "3", name: "card_payment_info" },
-                  domProps: { value: _vm.card_payment_info },
-                  on: {
-                    input: function($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.card_payment_info = $event.target.value
-                    }
-                  }
-                }),
-                _vm._v(" "),
-                _c("span", { staticClass: "help text-mute" }, [
-                  _vm._v("Instructions to show under Card Payment Option")
-                ])
-              ]),
+                  }),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "help text-mute" }, [
+                    _vm._v("Instructions to show under Card Payment Option")
+                  ])
+                ],
+                1
+              ),
               _vm._v(" "),
               _c("div", { staticClass: "form-group" }, [
                 _c("label", [
