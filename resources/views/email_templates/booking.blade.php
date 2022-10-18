@@ -143,7 +143,7 @@
                             <td style="padding:15px 30px 11px 30px;font-size:0;background-color:#ffffff;">
                                 <div style="display:inline-block;width:100%;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                                     @if(!is_null($mail['transaction']) && $mail['transaction']['payment_gateway'] == 'bank')
-                                    <?php echo $mail['event']['bank_payment_info']; ?> <br>
+                                    {{ @$mail['event']['bank_payment_info'] }} <br>
                                     Please add this payer reference {{ @$mail['transaction']['payer_reference'] }} when you transfer money to above bank account details.
                                 @endif
                                 </div>

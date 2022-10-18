@@ -93,22 +93,19 @@
 
                         <div class="form-group">
                             <label>{{ trans('em.offline_payment_info') }} </label>
-                            <textarea class="form-control"  rows="3" name="offline_payment_info" :value="offline_payment_info" style="display:none;" ></textarea>
-                            <ckeditor v-model="offline_payment_info"></ckeditor>
+                            <textarea class="form-control"  rows="3" name="offline_payment_info" v-model="offline_payment_info" ></textarea>
                             <span class="help text-mute">{{ trans('em.offline_payment_info_ie') }}</span>
                         </div>
 
                         <div class="form-group">
                             <label>Bank Payment Info </label>
-                            <textarea class="form-control"  rows="3" name="bank_payment_info" :value="bank_payment_info" style="display:none;" ></textarea>
-                            <ckeditor v-model="bank_payment_info"></ckeditor>
+                            <textarea class="form-control"  rows="3" name="bank_payment_info" v-model="bank_payment_info" ></textarea>
                             <span class="help text-mute">Instructions to show under Bank Payment Option</span>
                         </div>
 
                         <div class="form-group">
                             <label>Card Payment Info </label>
-                            <textarea class="form-control"  rows="3" name="card_payment_info" :value="card_payment_info" style="display:none;" ></textarea>
-                            <ckeditor v-model="card_payment_info"></ckeditor>
+                            <textarea class="form-control"  rows="3" name="card_payment_info" v-model="card_payment_info" ></textarea>
                             <span class="help text-mute">Instructions to show under Card Payment Option</span>
                         </div>
 

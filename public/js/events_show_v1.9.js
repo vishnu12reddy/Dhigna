@@ -74797,16 +74797,6 @@ var render = function() {
                     ? _c("pay-stack", { ref: "pay_stack" })
                     : _vm._e(),
                   _vm._v(" "),
-                  _vm.payment_method == 10
-                    ? _c("h5", [
-                        _c("small", {
-                          domProps: {
-                            innerHTML: _vm._s(_vm.event.bank_payment_info)
-                          }
-                        })
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
                   _c("div", { staticClass: "row mt-1" }, [
                     _vm.register_user_id
                       ? _c("div", { staticClass: "col-xs-12" }, [
