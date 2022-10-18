@@ -33,6 +33,11 @@
 @endcomponent
 @endif
 
+@if(!is_null($transaction) && $transaction->payment_gateway == 'bank')
+    {{ @$event?->bank_payment_info }} <br>
+    Please add this payer reference {{ @$transaction?->payer_reference }} when you transfer money to above bank account details.
+@endif
+
 {!! __('eventmie-pro::em.order_terms') !!}<br><br>
 
 {{ __('eventmie-pro::em.thank_you') }}<br>

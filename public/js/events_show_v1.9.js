@@ -4939,6 +4939,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
 
 
  //   CUSTOM 
@@ -5055,7 +5058,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       } else if (this.payment_method == 6 && this.total > 0) {
         this.PayStack(post_data);
       } else if (this.payment_method == 9 && this.total > 0) {
-        axios.post(route('eventmie.merchant_initial'), post_data).then(function (res) {
+        alert('This option will coming soon please check with other payment gateway for now');
+        location.reload(); // axios.post(route('eventmie.merchant_initial'), post_data)
+        // .then(res => {
+        //     if(res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+        //         // hide loader
+        //         Swal.hideLoading();
+        //         // close popup
+        //         this.close();
+        //         this.showNotification('success', res.data.message);
+        //     }else if(!res.data.status && res.data.message != '' && res.data.url != ''  && typeof(res.data.url) != "undefined"){
+        //         // hide loader
+        //         Swal.hideLoading();
+        //         // close popup
+        //         this.close();
+        //         this.showNotification('error', res.data.message);
+        //         setTimeout(() => {
+        //             window.location.href = res.data.url;    
+        //         }, 1000);
+        //     }
+        //     if(res.data.url != '' && res.data.status  && typeof(res.data.url) != "undefined") {
+        //         // hide loader
+        //         Swal.hideLoading();
+        //         setTimeout(() => {
+        //             window.location.href = res.data.url;    
+        //         }, 1000);
+        //     }
+        //     if(!res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+        //         // hide loader
+        //         Swal.hideLoading();
+        //         // close popup
+        //         this.close();
+        //         this.showNotification('error', res.data.message);
+        //     }
+        // })
+        // .catch(error => {
+        //     this.disable = false;
+        //     let serrors = Vue.helpers.axiosErrors(error);
+        //     if (serrors.length) {
+        //         this.serverValidate(serrors);
+        //     }
+        // });
+      } else if (this.payment_method == 10 && this.total > 0) {
+        axios.post(route('eventmie.bank_initial'), post_data).then(function (res) {
           if (res.data.status && res.data.message != '' && typeof res.data.message != "undefined") {
             // hide loader
             Swal.hideLoading(); // close popup
@@ -5063,6 +5108,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             _this2.close();
 
             _this2.showNotification('success', res.data.message);
+          } else if (!res.data.status && res.data.message != '' && res.data.url != '' && typeof res.data.url != "undefined") {
+            // hide loader
+            Swal.hideLoading(); // close popup
+
+            _this2.close();
+
+            _this2.showNotification('error', res.data.message);
+
+            setTimeout(function () {
+              window.location.href = res.data.url;
+            }, 1000);
+          }
+
+          if (res.data.url != '' && res.data.status && typeof res.data.url != "undefined") {
+            // hide loader
+            Swal.hideLoading();
+            setTimeout(function () {
+              window.location.href = res.data.url;
+            }, 1000);
+          }
+
+          if (!res.data.status && res.data.message != '' && typeof res.data.message != "undefined") {
+            // hide loader
+            Swal.hideLoading(); // close popup
+
+            _this2.close();
+
+            _this2.showNotification('error', res.data.message);
           }
         })["catch"](function (error) {
           _this2.disable = false;
@@ -74538,7 +74611,44 @@ var render = function() {
                                       staticClass: "custom-control-label",
                                       attrs: { for: "payment_method_merchant" }
                                     },
-                                    [_vm._v("Merchant Payment")]
+                                    [_vm._v("Pay By Card")]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("div", { staticClass: "radio-inline" }, [
+                                  _c("input", {
+                                    directives: [
+                                      {
+                                        name: "model",
+                                        rawName: "v-model",
+                                        value: _vm.payment_method,
+                                        expression: "payment_method"
+                                      }
+                                    ],
+                                    staticClass: "custom-control-input",
+                                    attrs: {
+                                      type: "radio",
+                                      id: "payment_method_bank",
+                                      name: "payment_method",
+                                      value: "10"
+                                    },
+                                    domProps: {
+                                      checked: _vm._q(_vm.payment_method, "10")
+                                    },
+                                    on: {
+                                      change: function($event) {
+                                        _vm.payment_method = "10"
+                                      }
+                                    }
+                                  }),
+                                  _vm._v(" "),
+                                  _c(
+                                    "label",
+                                    {
+                                      staticClass: "custom-control-label",
+                                      attrs: { for: "payment_method_bank" }
+                                    },
+                                    [_vm._v("Pay By Bank")]
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -74588,28 +74698,8 @@ var render = function() {
                                         },
                                         [
                                           _vm._v(
-                                            " \n                                         "
-                                          ),
-                                          _c("i", {
-                                            staticClass:
-                                              "fas fa-suitcase-rolling"
-                                          }),
-                                          _vm._v(
-                                            " " +
-                                              _vm._s(_vm.trans("em.offline")) +
-                                              " \n                                        "
-                                          ),
-                                          _c("small", [
-                                            _vm._v(
-                                              "(" +
-                                                _vm._s(
-                                                  _vm.trans(
-                                                    "em.cash_on_arrival"
-                                                  )
-                                                ) +
-                                                ")"
-                                            )
-                                          ])
+                                            " \n                                        Pay By Cash\n                                    "
+                                          )
                                         ]
                                       )
                                     ])
@@ -74673,6 +74763,16 @@ var render = function() {
                     parseFloat(_vm.total) - parseFloat(_vm.promocode_reward)
                   ).toFixed(2) > 0
                     ? _c("Merchant", { attrs: { event: _vm.event } })
+                    : _vm._e(),
+                  _vm.payment_method == 9
+                    ? _c("h3", [
+                        _c("small", {
+                          staticStyle: { color: "red" },
+                          domProps: {
+                            innerHTML: _vm._s(_vm.event.card_payment_info)
+                          }
+                        })
+                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.payment_method == 3 &&

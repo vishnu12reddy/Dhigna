@@ -209,6 +209,8 @@ Route::group([
         Route::post('/api/get_tickets', "$controller@get_tickets")->name('bookings_get_tickets');
         Route::post('/api/book_tickets', "$controller@book_tickets")->name('bookings_book_tickets');
         Route::post('/api/merchant_initial', "$controller@merchant_initial")->name('merchant_initial');
+        Route::post('/api/bank_initial', "$controller@bank_initial")->name('bank_initial');
+        
     });
     
     /* My Bookings (customers) */
@@ -227,6 +229,7 @@ Route::group([
         $controller = $namespace.'\OBookingsController';
         
         Route::get('/', "$controller@index")->name('obookings_index');  
+        // Route::post('/booking-payment-update/{id}', "$controller@booking_update")->name('payment_status_update');
         Route::get('/booking/{id}', "$controller@organiser_bookings_show")->name('obookings_organiser_bookings_show');     
         Route::get('/delete/{id}', "$controller@delete_booking")->name('obookings_organiser_booking_delete'); 
         

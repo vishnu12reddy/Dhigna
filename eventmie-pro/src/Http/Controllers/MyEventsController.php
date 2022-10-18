@@ -220,6 +220,9 @@ class MyEventsController extends Controller
             'description'       => 'required',
             'faq'               => 'nullable',
             'offline_payment_info' => 'nullable|max:256',
+            'bank_payment_info'  => 'nullable|max:256',
+            'card_payment_info'  => 'nullable|max:256',
+            
         ], [
             'category_id.*' => __('eventmie-pro::em.category').' '.__('eventmie-pro::em.required')
         ]);
@@ -269,7 +272,9 @@ class MyEventsController extends Controller
             "faq"           => $request->faq,
             "category_id"   => $request->category_id,
             "featured"      => 0,
-            "offline_payment_info" => $request->offline_payment_info
+            "offline_payment_info" => $request->offline_payment_info,
+            "bank_payment_info"  => $request->bank_payment_info,
+            "card_payment_info" => $request->card_payment_info,
         ];
 
         //featured

@@ -65,6 +65,7 @@ class Event extends Model
     // create user event
     public function save_event($params = [], $event_id = null)
     {
+       
        // if have no event id then create new event
        return Event::updateOrCreate(
             ['id' => $event_id],
