@@ -40,6 +40,8 @@ Route::bind('event', function ($value) {
     return \App\Models\Event::orWhere(['slug' =>  $value, 'short_url' => $value])->firstOrFail();
 });
 
+// Route::post('/payment-status-update/{id}', "App\Http\Controllers\Eventmie\OBookingsController@booking_update")->name('payment_status_update');
+
 Route::get('/invoice/download/bookings/{booking}', 'App\Http\Controllers\Eventmie\DownloadsController@downloadInvoice')->name('invoice');
     
 /* set local timezone */

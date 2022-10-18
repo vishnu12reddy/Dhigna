@@ -19,6 +19,7 @@ use App\Http\Controllers\InvoicesController;
 use App\Mail\BookingMail;
 use Mail;
 use App\Service\TicketPdfGenerator;
+use Classiebit\Eventmie\Models\Transaction;
 use Illuminate\Support\Facades\View;
 
 /* CUSTOM */
@@ -47,10 +48,19 @@ class SendEmailController extends BaseSendEmailController
         $mail['is_online']      = FALSE;
         if(!empty($event->online_location))
             $mail['is_online']  = TRUE;
+
+        
+        if(!is_null($booking_data[0]['transaction_id']) && $booking_data[0]['is_paid'] == 0)
+        {
+            $transaction = Transaction::find($booking_data[0]['transaction_id']);
+        }
+        
         
         // ====================== Notification ====================== 
         //send notification after bookings
         $mail['mail_data']      = $booking_data;
+        $mail['transaction']    = $transaction;
+        $mail['event']          = $event;
         $mail['action_title']   = __('eventmie-pro::em.download_tickets');
         $mail['action_url']     = route('eventmie.mybookings_index');
         $mail['mail_subject']   = __('eventmie-pro::em.booking_success');
@@ -67,10 +77,8 @@ class SendEmailController extends BaseSendEmailController
         $invoice          = new InvoicesController($booking_data);
         $mail['invoices']  = $invoice->makeInvoice();
 
-         
+       
         //CUSTOM
-        
-        
         $notification_ids       = [1, $booking_data[key($booking_data)]['organiser_id'], $booking_data[key($booking_data)]['customer_id']];
         
         $users = User::whereIn('id', $notification_ids)->get();

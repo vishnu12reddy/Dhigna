@@ -103,11 +103,7 @@
                         <tr>
                             <td
                                 style="padding:15px 30px 11px 30px;font-size:0;background-color:#ffffff;border-bottom:1px solid #f0f0f5;border-color:rgba(201,201,207,.35);">
-                                <!--[if mso]>
-                <table role="presentation" width="100%">
-                <tr>
-                <td style="width:100%;padding-bottom:20px;" valign="top">
-                <![endif]-->
+                               
                                 <div
                                     style="display:inline-block;width:100%;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
                                     <table style="width:100%;border:none;border-spacing:0;text-align:left;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
@@ -140,11 +136,17 @@
                                         
                                     </table>
                                 </div>
-                                <!--[if mso]>
-                </td>
-                </tr>
-                </table>
-                <![endif]-->
+                             
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding:15px 30px 11px 30px;font-size:0;background-color:#ffffff;">
+                                <div style="display:inline-block;width:100%;vertical-align:top;padding-bottom:20px;font-family:Arial,sans-serif;font-size:16px;line-height:22px;color:#363636;">
+                                    @if(!is_null($mail['transaction']) && $mail['transaction']['payment_gateway'] == 'bank')
+                                    {{ @$mail['event']['bank_payment_info'] }} <br>
+                                    Please add this payer reference {{ @$mail['transaction']['payer_reference'] }} when you transfer money to above bank account details.
+                                @endif
+                                </div>
                             </td>
                         </tr>
                         

@@ -618,6 +618,15 @@
                                         <input type="radio" class="custom-control-input" id="payment_method_paytm" name="payment_method" v-model="payment_method" value="8" >
                                         <label class="custom-control-label" for="payment_method_paytm">Paytm</label>
                                     </div>
+                                   
+                                    <div class="radio-inline" >
+                                        <input type="radio" class="custom-control-input" id="payment_method_merchant" name="payment_method" v-model="payment_method" value="9" >
+                                        <label class="custom-control-label" for="payment_method_merchant">Pay By Card</label>
+                                    </div>
+                                    <div class="radio-inline" >
+                                        <input type="radio" class="custom-control-input" id="payment_method_bank" name="payment_method" v-model="payment_method" value="10" >
+                                        <label class="custom-control-label" for="payment_method_bank">Pay By Bank</label>
+                                    </div>
                                     
                                     <!-- CUSTOM -->
 
@@ -628,8 +637,7 @@
                                         <input type="radio" class="custom-control-input" id="payment_method_offline" name="payment_method" v-model="payment_method" value="offline">
 
                                         <label class="custom-control-label" for="payment_method_offline"> 
-                                            &nbsp;<i class="fas fa-suitcase-rolling"></i> {{ trans('em.offline') }} 
-                                            <small>({{ trans('em.cash_on_arrival') }})</small>
+                                            Pay By Cash
                                         </label>
 
                                     </div>
@@ -652,7 +660,8 @@
                             :stripePublishableKey="stripePublishableKey"
                             :stripeSecretKey="stripe_secret_key"
                         ></stripe-component>
-
+                        
+                        <Merchant :event="event" v-if="payment_method == 9 &&  register_user_id &&(parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"> </Merchant><h3 v-if="payment_method == 9" ><small style="color:red" v-html="event.card_payment_info"></small></h3>
                         <authorize-net v-if="payment_method == 3 && total > 0 && register_user_id  && is_admin <= 0 && isAuthorizeNet > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"></authorize-net>
                         
                         <pay-stack ref="pay_stack" v-if="payment_method == 6 && total > 0 && register_user_id  && is_admin <= 0 && is_pay_stack > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"></pay-stack>
@@ -688,7 +697,6 @@
 </template>
 
 <script>
-
 import { mapState, mapMutations} from 'vuex';
 import mixinsFilters from '../../../../mixins.js';
 import _ from 'lodash';
@@ -701,6 +709,7 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 import AttendeeComponent from './custom/Attendee.vue';
 import SeatComponent from './custom/Seat';
 import PayStack from './custom/PayStack';
+import Merchant from './custom/Merchant';
 //  CUSTOM 
 // moment.locale('en');
 export default {
@@ -715,6 +724,8 @@ export default {
         AttendeeComponent,
         SeatComponent,
         'pay-stack'        : PayStack,
+        Merchant
+
         // CUSTOM 
     },
 
@@ -844,14 +855,129 @@ export default {
             post_data.append('phone', JSON.stringify(this.phone) );
             post_data.append('address', JSON.stringify(this.address) );
             //CUSTOM
-            
+           
             /* CUSTOM */
             // in case of Stripe    
             if(this.payment_method == 2 && this.total > 0) {
                 this.stripePayment(post_data);
             } else if(this.payment_method == 6 && this.total > 0){
                 this.PayStack(post_data);
-            } else {
+            }else if(this.payment_method == 9 && this.total > 0){
+                alert('This option will coming soon please check with other payment gateway for now');
+                location.reload();
+                // axios.post(route('eventmie.merchant_initial'), post_data)
+                // .then(res => {
+                //     if(res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+                    
+                //         // hide loader
+                //         Swal.hideLoading();
+
+                //         // close popup
+                //         this.close();
+                //         this.showNotification('success', res.data.message);
+                        
+                //     }else if(!res.data.status && res.data.message != '' && res.data.url != ''  && typeof(res.data.url) != "undefined"){
+                        
+                //         // hide loader
+                //         Swal.hideLoading();
+                        
+                //         // close popup
+                //         this.close();
+                //         this.showNotification('error', res.data.message);
+                        
+                //         setTimeout(() => {
+                //             window.location.href = res.data.url;    
+                //         }, 1000);
+                //     }
+
+                //     if(res.data.url != '' && res.data.status  && typeof(res.data.url) != "undefined") {
+                        
+                //         // hide loader
+                //         Swal.hideLoading();
+
+                //         setTimeout(() => {
+                //             window.location.href = res.data.url;    
+                //         }, 1000);
+                //     }
+
+                //     if(!res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+                    
+                //         // hide loader
+                //         Swal.hideLoading();
+
+                //         // close popup
+                //         this.close();
+                //         this.showNotification('error', res.data.message);
+                        
+                //     }
+                // })
+                // .catch(error => {
+                //     this.disable = false;
+                //     let serrors = Vue.helpers.axiosErrors(error);
+                //     if (serrors.length) {
+                        
+                //         this.serverValidate(serrors);
+                        
+                //     }
+                // });
+            }else if(this.payment_method == 10 && this.total > 0){
+                axios.post(route('eventmie.bank_initial'), post_data)
+                .then(res => {
+                    if(res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+                    
+                        // hide loader
+                        Swal.hideLoading();
+
+                        // close popup
+                        this.close();
+                        this.showNotification('success', res.data.message);
+                        
+                    }else if(!res.data.status && res.data.message != '' && res.data.url != ''  && typeof(res.data.url) != "undefined"){
+                        
+                        // hide loader
+                        Swal.hideLoading();
+                        
+                        // close popup
+                        this.close();
+                        this.showNotification('error', res.data.message);
+                        
+                        setTimeout(() => {
+                            window.location.href = res.data.url;    
+                        }, 1000);
+                    }
+
+                    if(res.data.url != '' && res.data.status  && typeof(res.data.url) != "undefined") {
+                        
+                        // hide loader
+                        Swal.hideLoading();
+
+                        setTimeout(() => {
+                            window.location.href = res.data.url;    
+                        }, 1000);
+                    }
+
+                    if(!res.data.status && res.data.message != ''  && typeof(res.data.message) != "undefined") {
+                    
+                        // hide loader
+                        Swal.hideLoading();
+
+                        // close popup
+                        this.close();
+                        this.showNotification('error', res.data.message);
+                        
+                    }
+                })
+                .catch(error => {
+                    this.disable = false;
+                    let serrors = Vue.helpers.axiosErrors(error);
+                    if (serrors.length) {
+                        
+                        this.serverValidate(serrors);
+                        
+                    }
+                });
+            }
+            else {
             /* CUSTOM */
                 // axios post request
                 axios.post(post_url, post_data)

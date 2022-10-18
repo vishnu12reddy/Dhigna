@@ -109,6 +109,7 @@ class MyEventsController extends BaseMyEventsController
     // create event
     public function store(Request $request)
     {
+        
         // if logged in user is admin
         $this->is_admin($request);
         
@@ -121,6 +122,8 @@ class MyEventsController extends BaseMyEventsController
             'description'       => 'required',
             'faq'               => 'nullable',
             'offline_payment_info' => 'nullable|max:2048',
+            'bank_payment_info'  => 'nullable|max:256',
+            'card_payment_info'  => 'nullable|max:256',
             // CUSTOM
             'short_url'         => 'nullable|max:256',
             'currency'          => 'nullable',
@@ -188,6 +191,9 @@ class MyEventsController extends BaseMyEventsController
             "category_id"   => $request->category_id,
             "featured"      => 0,
             "offline_payment_info" => $request->offline_payment_info,
+            'bank_payment_info'  => $request->bank_payment_info,
+            'card_payment_info'  => $request->card_payment_info,
+            
             //CUSTOM
             "short_url"     => $request->short_url,
             "currency"      => $request->currency,

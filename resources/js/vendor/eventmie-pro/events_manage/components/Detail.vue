@@ -97,6 +97,18 @@
                             <span class="help text-mute">{{ trans('em.offline_payment_info_ie') }}</span>
                         </div>
 
+                        <div class="form-group">
+                            <label>Bank Payment Info </label>
+                            <textarea class="form-control"  rows="3" name="bank_payment_info" v-model="bank_payment_info" ></textarea>
+                            <span class="help text-mute">Instructions to show under Bank Payment Option</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Card Payment Info </label>
+                            <textarea class="form-control"  rows="3" name="card_payment_info" v-model="card_payment_info" ></textarea>
+                            <span class="help text-mute">Instructions to show under Card Payment Option</span>
+                        </div>
+
                         
                         <!-- CUSTOM -->
                         <div class="form-group" >
@@ -177,6 +189,8 @@ export default {
             //selected organizer
             organizer       : this.selected_organiser,
             offline_payment_info :  null,
+            bank_payment_info :  null,
+            card_payment_info : null,
 
             //CUSTOM
             e_admin_commission :   null,
@@ -220,6 +234,8 @@ export default {
                 this.featured       = this.event.featured > 0 ? 1 : 0; 
                 this.status         = this.event.status > 0 ? 1 : 0;
                 this.offline_payment_info = this.event.offline_payment_info;
+                this.bank_payment_info = this.event.bank_payment_info;
+                this.card_payment_info = this.event.card_payment_info;
                 //CUSTOM
                 this.e_admin_commission = this.event.e_admin_commission;
                 this.short           = (this.event.short_url == '' || this.event.short_url == null ) ? '' : this.event.short_url;

@@ -40,6 +40,13 @@ class OBookingsController extends BaseOBookingsController
         return parent::index($view, $extra);
     }
 
+    // public function booking_update(Request $request)
+    // {
+    //     dd($request->all());
+    //     $payment_method = $request->payment_method;
+
+    // }
+
     /**
      * show promocode on view booking
      */

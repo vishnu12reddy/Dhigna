@@ -10,7 +10,11 @@
         <section>
             <div class="container">
                 <div class="row">
-                    
+                    @if($booking['transaction_id'] != 0)
+                    @php
+                        $transaction = \Classiebit\Eventmie\Models\Transaction::find($booking['transaction_id']);
+                    @endphp
+                    @endif
                     {{-- booking details --}}
                     <div class="col-md-6 table-responsive">
                         <h3>@lang('eventmie-pro::em.booking_info')</h3>
@@ -19,6 +23,12 @@
                                 <th>@lang('eventmie-pro::em.order_id')</th>
                                 <td>{{$booking['order_number']}}</td>
                             </tr>
+                            @if($booking['transaction_id'] != 0)
+                            <tr>
+                                <th>Payment Reference</th>
+                                <td>{{ @$transaction['payer_reference'] }}</td>
+                            </tr>
+                            @endif
 
                             <tr>
                                 <th>@lang('eventmie-pro::em.event_category')</th>
@@ -136,6 +146,26 @@
                                         @endif
                                     </td>
                                 </tr>
+                                {{-- @if($booking['transaction_id'] != 0 && $booking['is_paid'] == 0)
+                                <form class="form-horizontal" action="{{ route('payment_status_update',$booking['transaction_id'])}}" method="post" enctype="multipart/form-data">
+                                    
+    
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <tr>
+                                        <th>Status Update</th>
+                                        <td>
+                                            <select class="form-control" name="payment_method">
+                                                <option value="unpaid" @if($booking['is_paid'] == 0) selected @endif>Unpaid</option>
+                                                <option value="paid" @if($booking['is_paid'] == 1) selected @endif>paid</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><button type="submit" class="btn btn-primary">Update</button></td>
+                                        <td></td>
+                                    </tr>
+                                </form>
+                                @endif --}}
 
                             </tr>
                             

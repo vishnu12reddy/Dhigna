@@ -60,6 +60,12 @@ class OBookingsController extends Controller
 
     }
 
+    // public function booking_update(Request $request)
+    // {
+    //     dd($request->id);
+    //     $payment_method = $request->payment_method;
+
+    // }
     
     /**
      * Show organiser bookings

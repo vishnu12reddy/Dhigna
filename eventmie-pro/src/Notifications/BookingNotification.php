@@ -50,7 +50,7 @@ class BookingNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
                 ->subject($this->mail_data->mail_subject)
-                ->markdown('eventmie::mail.booking', ['mail_data'=>$this->mail_data]);
+                ->markdown('eventmie::mail.booking', ['mail_data'=>$this->mail_data,'transaction' => $this->transaction, 'event' => $this->event]);
     }
 
     /**

@@ -41,6 +41,7 @@ class BookingMail extends Mailable
      */
     public function build()
     {
+        
         /* Generate Tickets to attach to email */
         // init TicketPdfGenerator
         $this->pdf_generator    = new TicketPdfGenerator;

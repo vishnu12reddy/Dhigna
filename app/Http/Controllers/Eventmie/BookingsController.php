@@ -850,6 +850,7 @@ class BookingsController extends BaseBookingsController
     // 5. finish booking
     protected function finish_booking($booking = [], $data = [])
     {   
+
         //CUSTOM
         $bulk_code          = empty($data['bulk_code']) ? null : $data['bulk_code'];
         $payment_gateway    = !empty($data['payment_gateway']) ? $data['payment_gateway'] : 'Free';
@@ -899,6 +900,7 @@ class BookingsController extends BaseBookingsController
             }
         }
         
+       
         // insert data in commission table
         $this->commission->add_commission($commission_data);
 
