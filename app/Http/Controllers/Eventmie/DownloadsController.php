@@ -101,11 +101,11 @@ class DownloadsController extends BaseDownloadsController
         // download PDF
         $path           = '/storage/ticketpdfs/'.$booking['customer_id'];
         $pdf_file    = public_path().$path.'/'.$booking['id'].'-'.$booking['order_number'].'.pdf';
+        $fileStoragePdf = config('app.url').$path.'/'.$booking['id'].'-'.$booking['order_number'].'.pdf';
         if (!\File::exists($pdf_file))
             abort('404');
 
-        return response()->download($pdf_file);
-        
+        return redirect()->to($fileStoragePdf);
     }
 
     //CUSTOM
@@ -347,6 +347,7 @@ class DownloadsController extends BaseDownloadsController
         $common_order = $booking['common_order'];
                 
         $file = public_path('/storage/invoices/'.$booking['customer_id'].'/'.$booking['common_order'].'-invoice.pdf');
+        $fileStorage = config('app.url').'/storage/invoices/'.$booking['customer_id'].'/'.$booking['common_order'].'-invoice.pdf';
         
         if(!\File::exists($file)) 
         {
@@ -366,9 +367,9 @@ class DownloadsController extends BaseDownloadsController
     
             $invoice       = new  InvoicesController;
             $file          = $invoice->generatePdf($pdf_html, $pdf_name, $booking);
+            return response()->download($file);
         }
         
-        return response()->download($file);
-        
+        return redirect()->to($fileStorage);
     }
 }

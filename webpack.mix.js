@@ -15,8 +15,8 @@ require('laravel-mix-polyfill');
 
 // mix.js('resources/js/app.js', 'public/js')
 mix.js('resources/js/vendor/eventmie-pro/events_show/index.js', 'public/js/events_show_v1.9.js')
-    // .js('resources/js/vendor/eventmie-pro/bookings_organiser/index.js', 'public/js/bookings_organiser_v1.8.js')
-    // .js('resources/js/vendor/eventmie-pro/bookings_customer/index.js', 'public/js/bookings_customer_v1.8.js')
+    .js('resources/js/vendor/eventmie-pro/bookings_organiser/index.js', 'public/js/bookings_organiser_v1.8.js')
+    .js('resources/js/vendor/eventmie-pro/bookings_customer/index.js', 'public/js/bookings_customer_v1.8.js')
     .js('resources/js/vendor/eventmie-pro/events_manage/index.js', 'public/js/events_manage_v1.8.js')
     // .js('resources/js/vendor/eventmie-pro/myevents/index.js', 'public/js/myevents_v1.8.js')
     // .js('resources/js/organiser/index.js', 'public/js/organiser.js')

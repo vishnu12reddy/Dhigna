@@ -49,7 +49,7 @@ class SendEmailController extends BaseSendEmailController
         if(!empty($event->online_location))
             $mail['is_online']  = TRUE;
 
-        
+        $transaction = null;
         if(!is_null($booking_data[0]['transaction_id']) && $booking_data[0]['is_paid'] == 0)
         {
             $transaction = Transaction::find($booking_data[0]['transaction_id']);

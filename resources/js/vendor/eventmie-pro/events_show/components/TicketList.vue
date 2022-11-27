@@ -619,10 +619,10 @@
                                         <label class="custom-control-label" for="payment_method_paytm">Paytm</label>
                                     </div>
                                    
-                                    <div class="radio-inline" >
+                                    <!-- <div class="radio-inline" >
                                         <input type="radio" class="custom-control-input" id="payment_method_merchant" name="payment_method" v-model="payment_method" value="9" >
                                         <label class="custom-control-label" for="payment_method_merchant">Pay By Card</label>
-                                    </div>
+                                    </div> -->
                                     <div class="radio-inline" >
                                         <input type="radio" class="custom-control-input" id="payment_method_bank" name="payment_method" v-model="payment_method" value="10" >
                                         <label class="custom-control-label" for="payment_method_bank">Pay By Bank</label>
@@ -653,6 +653,7 @@
                         </div>
                         
                          <!--  CUSTOM -->
+                         <h3 v-if="payment_method == 2 && total > 0 && register_user_id  && is_admin <= 0 && isStripe > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0" ><small style="color:red" v-html="event.card_payment_info"></small></h3>
                         <stripe-component 
                             ref="stripe" 
                             v-if="payment_method == 2 && total > 0 && register_user_id  && is_admin <= 0 && isStripe > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"
@@ -661,7 +662,8 @@
                             :stripeSecretKey="stripe_secret_key"
                         ></stripe-component>
                         
-                        <Merchant :event="event" v-if="payment_method == 9 &&  register_user_id &&(parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"> </Merchant><h3 v-if="payment_method == 9" ><small style="color:red" v-html="event.card_payment_info"></small></h3>
+                        
+                        <!-- <Merchant :event="event" v-if="payment_method == 9 &&  register_user_id &&(parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"> </Merchant><h3 v-if="payment_method == 9" ><small style="color:red" v-html="event.card_payment_info"></small></h3> -->
                         <authorize-net v-if="payment_method == 3 && total > 0 && register_user_id  && is_admin <= 0 && isAuthorizeNet > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"></authorize-net>
                         
                         <pay-stack ref="pay_stack" v-if="payment_method == 6 && total > 0 && register_user_id  && is_admin <= 0 && is_pay_stack > 0 && (parseFloat(total) - parseFloat(promocode_reward)).toFixed(2) > 0"></pay-stack>
