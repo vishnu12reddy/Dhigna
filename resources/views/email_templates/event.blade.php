@@ -80,7 +80,7 @@
                             <td style="padding:40px 30px 30px 30px;text-align:center;font-size:24px;font-weight:bold;">
                                 <a href="{{ eventmie_url() }}" style="text-decoration:none;">
                                     <img
-                                        src="{{ url('').'/storage/'.setting('site.logo') }}" width="80" alt="Logo"
+                                        src="https://events.dhigna.com/storage/settings/November2022/pdflogo.png" width="80" alt="Logo"
                                         style="width:88px;max-width:80%;height:auto;border:none;text-decoration:none;color:#ffffff;">
                                     <h1
                                         style="margin-top:8px;margin-bottom:0px;font-size:26px;font-weight:bold;color: #000;">

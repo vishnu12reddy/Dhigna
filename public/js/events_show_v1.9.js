@@ -4942,6 +4942,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
 
 
  //   CUSTOM 
@@ -5834,6 +5836,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -9494,7 +9500,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700|Source+Sans+Pro:400,600,700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-5a4fa79c] {\n  background: #ddeefc;\n  font-family: \"Source Sans Pro\", sans-serif;\n  font-size: 16px;\n}\n*[data-v-5a4fa79c] {\n  box-sizing: border-box;\n}\n*[data-v-5a4fa79c]:focus {\n  outline: none;\n}\n.wrapper[data-v-5a4fa79c] {\n  /* min-height: 100vh; */\n  display: flex;\n  padding: 50px 15px;\n}\n@media screen and (max-width: 700px), (max-height: 500px) {\n.wrapper[data-v-5a4fa79c] {\n    flex-wrap: wrap;\n    flex-direction: column;\n}\n}\n.card-form[data-v-5a4fa79c] {\n  max-width: 570px;\n  margin: 0;\n  margin-right: auto;\n  margin-left: auto;\n  width: 100%;\n}\n@media screen and (max-width: 576px) {\n.card-form[data-v-5a4fa79c] {\n    margin: 0 auto;\n}\n}\n.card-form__inner[data-v-5a4fa79c] {\n  background: #fff;\n  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);\n  border-radius: 10px;\n  padding: 35px;\n  padding-top: 180px;\n}\n@media screen and (max-width: 480px) {\n.card-form__inner[data-v-5a4fa79c] {\n    padding: 25px;\n    padding-top: 165px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-form__inner[data-v-5a4fa79c] {\n    padding: 15px;\n    padding-top: 165px;\n}\n}\n.card-form__row[data-v-5a4fa79c] {\n  display: flex;\n  align-items: flex-start;\n}\n@media screen and (max-width: 480px) {\n.card-form__row[data-v-5a4fa79c] {\n    flex-wrap: wrap;\n}\n}\n.card-form__col[data-v-5a4fa79c] {\n  flex: auto;\n  margin-right: 35px;\n}\n.card-form__col[data-v-5a4fa79c]:last-child {\n  margin-right: 0;\n}\n@media screen and (max-width: 480px) {\n.card-form__col[data-v-5a4fa79c] {\n    margin-right: 0;\n    flex: unset;\n    width: 100%;\n    margin-bottom: 20px;\n}\n.card-form__col[data-v-5a4fa79c]:last-child {\n    margin-bottom: 0;\n}\n}\n.card-form__col.-cvv[data-v-5a4fa79c] {\n  max-width: 150px;\n}\n@media screen and (max-width: 480px) {\n.card-form__col.-cvv[data-v-5a4fa79c] {\n    max-width: initial;\n}\n}\n.card-form__group[data-v-5a4fa79c] {\n  display: flex;\n  align-items: flex-start;\n  flex-wrap: wrap;\n}\n.card-form__group .card-input__input[data-v-5a4fa79c] {\n  flex: 1;\n  margin-right: 15px;\n}\n.card-form__group .card-input__input[data-v-5a4fa79c]:last-child {\n  margin-right: 0;\n}\n.card-form__button[data-v-5a4fa79c] {\n  width: 100%;\n  height: 55px;\n  background: #2364d2;\n  border: none;\n  border-radius: 5px;\n  font-size: 22px;\n  font-weight: 500;\n  font-family: \"Source Sans Pro\", sans-serif;\n  box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);\n  color: #fff;\n  margin-top: 20px;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-form__button[data-v-5a4fa79c] {\n    margin-top: 10px;\n}\n}\n.card-item[data-v-5a4fa79c] {\n  max-width: 430px;\n  height: 270px;\n  margin-left: auto;\n  margin-right: auto;\n  position: relative;\n  z-index: 2;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item[data-v-5a4fa79c] {\n    max-width: 310px;\n    height: 220px;\n    width: 90%;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item[data-v-5a4fa79c] {\n    height: 180px;\n}\n}\n.card-item.-active .card-item__side.-front[data-v-5a4fa79c] {\n  transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);\n}\n.card-item.-active .card-item__side.-back[data-v-5a4fa79c] {\n  transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);\n}\n.card-item__focus[data-v-5a4fa79c] {\n  position: absolute;\n  z-index: 3;\n  border-radius: 5px;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);\n  opacity: 0;\n  pointer-events: none;\n  overflow: hidden;\n  border: 2px solid rgba(255, 255, 255, 0.65);\n}\n.card-item__focus[data-v-5a4fa79c]:after {\n  content: \"\";\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  background: #08142f;\n  height: 100%;\n  border-radius: 5px;\n  filter: blur(25px);\n  opacity: 0.5;\n}\n.card-item__focus.-active[data-v-5a4fa79c] {\n  opacity: 1;\n}\n.card-item__side[data-v-5a4fa79c] {\n  border-radius: 15px;\n  overflow: hidden;\n  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);\n  transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);\n  transform-style: preserve-3d;\n  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);\n  -webkit-backface-visibility: hidden;\n          backface-visibility: hidden;\n  height: 100%;\n}\n.card-item__side.-back[data-v-5a4fa79c] {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);\n  z-index: 2;\n  padding: 0;\n  height: 100%;\n}\n.card-item__side.-back .card-item__cover[data-v-5a4fa79c] {\n  transform: rotateY(-180deg);\n}\n.card-item__bg[data-v-5a4fa79c] {\n  max-width: 100%;\n  display: block;\n  max-height: 100%;\n  height: 100%;\n  width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.card-item__cover[data-v-5a4fa79c] {\n  height: 100%;\n  background-color: #1c1d27;\n  position: absolute;\n  height: 100%;\n  background-color: #1c1d27;\n  left: 0;\n  top: 0;\n  width: 100%;\n  border-radius: 15px;\n  overflow: hidden;\n}\n.card-item__cover[data-v-5a4fa79c]:after {\n  content: \"\";\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(6, 2, 29, 0.45);\n}\n.card-item__top[data-v-5a4fa79c] {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  margin-bottom: 40px;\n  padding: 0 10px;\n}\n@media screen and (max-width: 480px) {\n.card-item__top[data-v-5a4fa79c] {\n    margin-bottom: 25px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__top[data-v-5a4fa79c] {\n    margin-bottom: 15px;\n}\n}\n.card-item__chip[data-v-5a4fa79c] {\n  width: 60px;\n}\n@media screen and (max-width: 480px) {\n.card-item__chip[data-v-5a4fa79c] {\n    width: 50px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__chip[data-v-5a4fa79c] {\n    width: 40px;\n}\n}\n.card-item__type[data-v-5a4fa79c] {\n  height: 45px;\n  position: relative;\n  display: flex;\n  justify-content: flex-end;\n  max-width: 100px;\n  margin-left: auto;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item__type[data-v-5a4fa79c] {\n    height: 40px;\n    max-width: 90px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__type[data-v-5a4fa79c] {\n    height: 30px;\n}\n}\n.card-item__typeImg[data-v-5a4fa79c] {\n  max-width: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n  max-height: 100%;\n  -o-object-position: top right;\n     object-position: top right;\n}\n.card-item__info[data-v-5a4fa79c] {\n  color: #fff;\n  width: 100%;\n  max-width: calc(100% - 85px);\n  padding: 10px 15px;\n  font-weight: 500;\n  display: block;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__info[data-v-5a4fa79c] {\n    padding: 10px;\n}\n}\n.card-item__holder[data-v-5a4fa79c] {\n  opacity: 0.7;\n  font-size: 13px;\n  margin-bottom: 6px;\n}\n@media screen and (max-width: 480px) {\n.card-item__holder[data-v-5a4fa79c] {\n    font-size: 12px;\n    margin-bottom: 5px;\n}\n}\n.card-item__wrapper[data-v-5a4fa79c] {\n  font-family: \"Source Code Pro\", monospace;\n  padding: 25px 15px;\n  position: relative;\n  z-index: 4;\n  height: 100%;\n  text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n@media screen and (max-width: 480px) {\n.card-item__wrapper[data-v-5a4fa79c] {\n    padding: 20px 10px;\n}\n}\n.card-item__name[data-v-5a4fa79c] {\n  font-size: 18px;\n  line-height: 1;\n  white-space: nowrap;\n  max-width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  text-transform: uppercase;\n}\n@media screen and (max-width: 480px) {\n.card-item__name[data-v-5a4fa79c] {\n    font-size: 16px;\n}\n}\n.card-item__nameItem[data-v-5a4fa79c] {\n  display: inline-block;\n  min-width: 8px;\n  position: relative;\n}\n.card-item__number[data-v-5a4fa79c] {\n  font-weight: 500;\n  line-height: 1;\n  color: #fff;\n  font-size: 27px;\n  margin-bottom: 35px;\n  display: inline-block;\n  padding: 10px 15px;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__number[data-v-5a4fa79c] {\n    font-size: 21px;\n    margin-bottom: 15px;\n    padding: 10px 10px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__number[data-v-5a4fa79c] {\n    font-size: 19px;\n    margin-bottom: 10px;\n    padding: 10px 10px;\n}\n}\n.card-item__numberItem[data-v-5a4fa79c] {\n  width: 16px;\n  display: inline-block;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\n  width: 30px;\n}\n@media screen and (max-width: 480px) {\n.card-item__numberItem[data-v-5a4fa79c] {\n    width: 13px;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\n    width: 16px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__numberItem[data-v-5a4fa79c] {\n    width: 12px;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\n    width: 8px;\n}\n}\n.card-item__content[data-v-5a4fa79c] {\n  color: #fff;\n  display: flex;\n  align-items: flex-start;\n}\n.card-item__date[data-v-5a4fa79c] {\n  flex-wrap: wrap;\n  font-size: 18px;\n  margin-left: auto;\n  padding: 10px;\n  display: inline-flex;\n  width: 80px;\n  white-space: nowrap;\n  flex-shrink: 0;\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__date[data-v-5a4fa79c] {\n    font-size: 16px;\n}\n}\n.card-item__dateItem[data-v-5a4fa79c] {\n  position: relative;\n}\n.card-item__dateItem span[data-v-5a4fa79c] {\n  width: 22px;\n  display: inline-block;\n}\n.card-item__dateTitle[data-v-5a4fa79c] {\n  opacity: 0.7;\n  font-size: 13px;\n  padding-bottom: 6px;\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item__dateTitle[data-v-5a4fa79c] {\n    font-size: 12px;\n    padding-bottom: 5px;\n}\n}\n.card-item__band[data-v-5a4fa79c] {\n  background: rgba(0, 0, 19, 0.8);\n  width: 100%;\n  height: 50px;\n  margin-top: 30px;\n  position: relative;\n  z-index: 2;\n}\n@media screen and (max-width: 480px) {\n.card-item__band[data-v-5a4fa79c] {\n    margin-top: 20px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__band[data-v-5a4fa79c] {\n    height: 40px;\n    margin-top: 10px;\n}\n}\n.card-item__cvv[data-v-5a4fa79c] {\n  text-align: right;\n  position: relative;\n  z-index: 2;\n  padding: 15px;\n}\n.card-item__cvv .card-item__type[data-v-5a4fa79c] {\n  opacity: 0.7;\n}\n@media screen and (max-width: 360px) {\n.card-item__cvv[data-v-5a4fa79c] {\n    padding: 10px 15px;\n}\n}\n.card-item__cvvTitle[data-v-5a4fa79c] {\n  padding-right: 10px;\n  font-size: 15px;\n  font-weight: 500;\n  color: #fff;\n  margin-bottom: 5px;\n}\n.card-item__cvvBand[data-v-5a4fa79c] {\n  height: 45px;\n  background: #fff;\n  margin-bottom: 30px;\n  text-align: right;\n  display: flex;\n  align-items: center;\n  justify-content: flex-end;\n  padding-right: 10px;\n  color: #1a3b5d;\n  font-size: 18px;\n  border-radius: 4px;\n  box-shadow: 0px 10px 20px -7px rgba(32, 56, 117, 0.35);\n}\n@media screen and (max-width: 480px) {\n.card-item__cvvBand[data-v-5a4fa79c] {\n    height: 40px;\n    margin-bottom: 20px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__cvvBand[data-v-5a4fa79c] {\n    margin-bottom: 15px;\n}\n}\n.card-list[data-v-5a4fa79c] {\n  margin-bottom: -130px;\n}\n@media screen and (max-width: 480px) {\n.card-list[data-v-5a4fa79c] {\n    margin-bottom: -120px;\n}\n}\n.card-input[data-v-5a4fa79c] {\n  margin-bottom: 20px;\n}\n.card-input__label[data-v-5a4fa79c] {\n  font-size: 14px;\n  margin-bottom: 5px;\n  font-weight: 500;\n  color: #1a3b5d;\n  width: 100%;\n  display: block;\n  -webkit-user-select: none;\n     -moz-user-select: none;\n      -ms-user-select: none;\n          user-select: none;\n}\n.card-input__input[data-v-5a4fa79c] {\n  width: 100%;\n  height: 50px;\n  border-radius: 5px;\n  box-shadow: none;\n  border: 1px solid #ced6e0;\n  transition: all 0.3s ease-in-out;\n  font-size: 18px;\n  padding: 5px 15px;\n  background: none;\n  color: #1a3b5d;\n  font-family: \"Source Sans Pro\", sans-serif;\n}\n.card-input__input[data-v-5a4fa79c]:hover, .card-input__input[data-v-5a4fa79c]:focus {\n  border-color: #3d9cff;\n}\n.card-input__input[data-v-5a4fa79c]:focus {\n  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);\n}\n.card-input__input.-select[data-v-5a4fa79c] {\n  -webkit-appearance: none;\n  background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC\");\n  background-size: 12px;\n  background-position: 90% center;\n  background-repeat: no-repeat;\n  padding-right: 30px;\n}\n.slide-fade-up-enter-active[data-v-5a4fa79c] {\n  transition: all 0.25s ease-in-out;\n  transition-delay: 0.1s;\n  position: relative;\n}\n.slide-fade-up-leave-active[data-v-5a4fa79c] {\n  transition: all 0.25s ease-in-out;\n  position: absolute;\n}\n.slide-fade-up-enter[data-v-5a4fa79c] {\n  opacity: 0;\n  transform: translateY(15px);\n  pointer-events: none;\n}\n.slide-fade-up-leave-to[data-v-5a4fa79c] {\n  opacity: 0;\n  transform: translateY(-15px);\n  pointer-events: none;\n}\n.slide-fade-right-enter-active[data-v-5a4fa79c] {\n  transition: all 0.25s ease-in-out;\n  transition-delay: 0.1s;\n  position: relative;\n}\n.slide-fade-right-leave-active[data-v-5a4fa79c] {\n  transition: all 0.25s ease-in-out;\n  position: absolute;\n}\n.slide-fade-right-enter[data-v-5a4fa79c] {\n  opacity: 0;\n  transform: translateX(10px) rotate(45deg);\n  pointer-events: none;\n}\n.slide-fade-right-leave-to[data-v-5a4fa79c] {\n  opacity: 0;\n  transform: translateX(-10px) rotate(45deg);\n  pointer-events: none;\n}\n.github-btn[data-v-5a4fa79c] {\n  position: absolute;\n  right: 40px;\n  bottom: 50px;\n  text-decoration: none;\n  padding: 15px 25px;\n  border-radius: 4px;\n  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);\n  background: #24292e;\n  color: #fff;\n  font-weight: bold;\n  letter-spacing: 1px;\n  font-size: 16px;\n  text-align: center;\n  transition: all 0.3s ease-in-out;\n}\n@media screen and (min-width: 500px) {\n.github-btn[data-v-5a4fa79c]:hover {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n}\n}\n@media screen and (max-width: 700px) {\n.github-btn[data-v-5a4fa79c] {\n    position: relative;\n    bottom: auto;\n    right: auto;\n    margin-top: 20px;\n}\n.github-btn[data-v-5a4fa79c]:active {\n    transform: scale(1.1);\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-5a4fa79c] {\r\n  background: #ddeefc;\r\n  font-family: \"Source Sans Pro\", sans-serif;\r\n  font-size: 16px;\n}\n*[data-v-5a4fa79c] {\r\n  box-sizing: border-box;\n}\n*[data-v-5a4fa79c]:focus {\r\n  outline: none;\n}\n.wrapper[data-v-5a4fa79c] {\r\n  /* min-height: 100vh; */\r\n  display: flex;\r\n  padding: 50px 15px;\n}\n@media screen and (max-width: 700px), (max-height: 500px) {\n.wrapper[data-v-5a4fa79c] {\r\n    flex-wrap: wrap;\r\n    flex-direction: column;\n}\n}\n.card-form[data-v-5a4fa79c] {\r\n  max-width: 570px;\r\n  margin: 0;\r\n  margin-right: auto;\r\n  margin-left: auto;\r\n  width: 100%;\n}\n@media screen and (max-width: 576px) {\n.card-form[data-v-5a4fa79c] {\r\n    margin: 0 auto;\n}\n}\n.card-form__inner[data-v-5a4fa79c] {\r\n  background: #fff;\r\n  box-shadow: 0 30px 60px 0 rgba(90, 116, 148, 0.4);\r\n  border-radius: 10px;\r\n  padding: 35px;\r\n  padding-top: 180px;\n}\n@media screen and (max-width: 480px) {\n.card-form__inner[data-v-5a4fa79c] {\r\n    padding: 25px;\r\n    padding-top: 165px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-form__inner[data-v-5a4fa79c] {\r\n    padding: 15px;\r\n    padding-top: 165px;\n}\n}\n.card-form__row[data-v-5a4fa79c] {\r\n  display: flex;\r\n  align-items: flex-start;\n}\n@media screen and (max-width: 480px) {\n.card-form__row[data-v-5a4fa79c] {\r\n    flex-wrap: wrap;\n}\n}\n.card-form__col[data-v-5a4fa79c] {\r\n  flex: auto;\r\n  margin-right: 35px;\n}\n.card-form__col[data-v-5a4fa79c]:last-child {\r\n  margin-right: 0;\n}\n@media screen and (max-width: 480px) {\n.card-form__col[data-v-5a4fa79c] {\r\n    margin-right: 0;\r\n    flex: unset;\r\n    width: 100%;\r\n    margin-bottom: 20px;\n}\n.card-form__col[data-v-5a4fa79c]:last-child {\r\n    margin-bottom: 0;\n}\n}\n.card-form__col.-cvv[data-v-5a4fa79c] {\r\n  max-width: 150px;\n}\n@media screen and (max-width: 480px) {\n.card-form__col.-cvv[data-v-5a4fa79c] {\r\n    max-width: initial;\n}\n}\n.card-form__group[data-v-5a4fa79c] {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  flex-wrap: wrap;\n}\n.card-form__group .card-input__input[data-v-5a4fa79c] {\r\n  flex: 1;\r\n  margin-right: 15px;\n}\n.card-form__group .card-input__input[data-v-5a4fa79c]:last-child {\r\n  margin-right: 0;\n}\n.card-form__button[data-v-5a4fa79c] {\r\n  width: 100%;\r\n  height: 55px;\r\n  background: #2364d2;\r\n  border: none;\r\n  border-radius: 5px;\r\n  font-size: 22px;\r\n  font-weight: 500;\r\n  font-family: \"Source Sans Pro\", sans-serif;\r\n  box-shadow: 3px 10px 20px 0px rgba(35, 100, 210, 0.3);\r\n  color: #fff;\r\n  margin-top: 20px;\r\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-form__button[data-v-5a4fa79c] {\r\n    margin-top: 10px;\n}\n}\n.card-item[data-v-5a4fa79c] {\r\n  max-width: 430px;\r\n  height: 270px;\r\n  margin-left: auto;\r\n  margin-right: auto;\r\n  position: relative;\r\n  z-index: 2;\r\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item[data-v-5a4fa79c] {\r\n    max-width: 310px;\r\n    height: 220px;\r\n    width: 90%;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item[data-v-5a4fa79c] {\r\n    height: 180px;\n}\n}\n.card-item.-active .card-item__side.-front[data-v-5a4fa79c] {\r\n  transform: perspective(1000px) rotateY(180deg) rotateX(0deg) rotateZ(0deg);\n}\n.card-item.-active .card-item__side.-back[data-v-5a4fa79c] {\r\n  transform: perspective(1000px) rotateY(0) rotateX(0deg) rotateZ(0deg);\n}\n.card-item__focus[data-v-5a4fa79c] {\r\n  position: absolute;\r\n  z-index: 3;\r\n  border-radius: 5px;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  transition: all 0.35s cubic-bezier(0.71, 0.03, 0.56, 0.85);\r\n  opacity: 0;\r\n  pointer-events: none;\r\n  overflow: hidden;\r\n  border: 2px solid rgba(255, 255, 255, 0.65);\n}\n.card-item__focus[data-v-5a4fa79c]:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  background: #08142f;\r\n  height: 100%;\r\n  border-radius: 5px;\r\n  filter: blur(25px);\r\n  opacity: 0.5;\n}\n.card-item__focus.-active[data-v-5a4fa79c] {\r\n  opacity: 1;\n}\n.card-item__side[data-v-5a4fa79c] {\r\n  border-radius: 15px;\r\n  overflow: hidden;\r\n  box-shadow: 0 20px 60px 0 rgba(14, 42, 90, 0.55);\r\n  transform: perspective(2000px) rotateY(0deg) rotateX(0deg) rotate(0deg);\r\n  transform-style: preserve-3d;\r\n  transition: all 0.8s cubic-bezier(0.71, 0.03, 0.56, 0.85);\r\n  -webkit-backface-visibility: hidden;\r\n          backface-visibility: hidden;\r\n  height: 100%;\n}\n.card-item__side.-back[data-v-5a4fa79c] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  transform: perspective(2000px) rotateY(-180deg) rotateX(0deg) rotate(0deg);\r\n  z-index: 2;\r\n  padding: 0;\r\n  height: 100%;\n}\n.card-item__side.-back .card-item__cover[data-v-5a4fa79c] {\r\n  transform: rotateY(-180deg);\n}\n.card-item__bg[data-v-5a4fa79c] {\r\n  max-width: 100%;\r\n  display: block;\r\n  max-height: 100%;\r\n  height: 100%;\r\n  width: 100%;\r\n  -o-object-fit: cover;\r\n     object-fit: cover;\n}\n.card-item__cover[data-v-5a4fa79c] {\r\n  height: 100%;\r\n  background-color: #1c1d27;\r\n  position: absolute;\r\n  height: 100%;\r\n  background-color: #1c1d27;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  border-radius: 15px;\r\n  overflow: hidden;\n}\n.card-item__cover[data-v-5a4fa79c]:after {\r\n  content: \"\";\r\n  position: absolute;\r\n  left: 0;\r\n  top: 0;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: rgba(6, 2, 29, 0.45);\n}\n.card-item__top[data-v-5a4fa79c] {\r\n  display: flex;\r\n  align-items: flex-start;\r\n  justify-content: space-between;\r\n  margin-bottom: 40px;\r\n  padding: 0 10px;\n}\n@media screen and (max-width: 480px) {\n.card-item__top[data-v-5a4fa79c] {\r\n    margin-bottom: 25px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__top[data-v-5a4fa79c] {\r\n    margin-bottom: 15px;\n}\n}\n.card-item__chip[data-v-5a4fa79c] {\r\n  width: 60px;\n}\n@media screen and (max-width: 480px) {\n.card-item__chip[data-v-5a4fa79c] {\r\n    width: 50px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__chip[data-v-5a4fa79c] {\r\n    width: 40px;\n}\n}\n.card-item__type[data-v-5a4fa79c] {\r\n  height: 45px;\r\n  position: relative;\r\n  display: flex;\r\n  justify-content: flex-end;\r\n  max-width: 100px;\r\n  margin-left: auto;\r\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item__type[data-v-5a4fa79c] {\r\n    height: 40px;\r\n    max-width: 90px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__type[data-v-5a4fa79c] {\r\n    height: 30px;\n}\n}\n.card-item__typeImg[data-v-5a4fa79c] {\r\n  max-width: 100%;\r\n  -o-object-fit: contain;\r\n     object-fit: contain;\r\n  max-height: 100%;\r\n  -o-object-position: top right;\r\n     object-position: top right;\n}\n.card-item__info[data-v-5a4fa79c] {\r\n  color: #fff;\r\n  width: 100%;\r\n  max-width: calc(100% - 85px);\r\n  padding: 10px 15px;\r\n  font-weight: 500;\r\n  display: block;\r\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__info[data-v-5a4fa79c] {\r\n    padding: 10px;\n}\n}\n.card-item__holder[data-v-5a4fa79c] {\r\n  opacity: 0.7;\r\n  font-size: 13px;\r\n  margin-bottom: 6px;\n}\n@media screen and (max-width: 480px) {\n.card-item__holder[data-v-5a4fa79c] {\r\n    font-size: 12px;\r\n    margin-bottom: 5px;\n}\n}\n.card-item__wrapper[data-v-5a4fa79c] {\r\n  font-family: \"Source Code Pro\", monospace;\r\n  padding: 25px 15px;\r\n  position: relative;\r\n  z-index: 4;\r\n  height: 100%;\r\n  text-shadow: 7px 6px 10px rgba(14, 42, 90, 0.8);\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\n}\n@media screen and (max-width: 480px) {\n.card-item__wrapper[data-v-5a4fa79c] {\r\n    padding: 20px 10px;\n}\n}\n.card-item__name[data-v-5a4fa79c] {\r\n  font-size: 18px;\r\n  line-height: 1;\r\n  white-space: nowrap;\r\n  max-width: 100%;\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  text-transform: uppercase;\n}\n@media screen and (max-width: 480px) {\n.card-item__name[data-v-5a4fa79c] {\r\n    font-size: 16px;\n}\n}\n.card-item__nameItem[data-v-5a4fa79c] {\r\n  display: inline-block;\r\n  min-width: 8px;\r\n  position: relative;\n}\n.card-item__number[data-v-5a4fa79c] {\r\n  font-weight: 500;\r\n  line-height: 1;\r\n  color: #fff;\r\n  font-size: 27px;\r\n  margin-bottom: 35px;\r\n  display: inline-block;\r\n  padding: 10px 15px;\r\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__number[data-v-5a4fa79c] {\r\n    font-size: 21px;\r\n    margin-bottom: 15px;\r\n    padding: 10px 10px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__number[data-v-5a4fa79c] {\r\n    font-size: 19px;\r\n    margin-bottom: 10px;\r\n    padding: 10px 10px;\n}\n}\n.card-item__numberItem[data-v-5a4fa79c] {\r\n  width: 16px;\r\n  display: inline-block;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\r\n  width: 30px;\n}\n@media screen and (max-width: 480px) {\n.card-item__numberItem[data-v-5a4fa79c] {\r\n    width: 13px;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\r\n    width: 16px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__numberItem[data-v-5a4fa79c] {\r\n    width: 12px;\n}\n.card-item__numberItem.-active[data-v-5a4fa79c] {\r\n    width: 8px;\n}\n}\n.card-item__content[data-v-5a4fa79c] {\r\n  color: #fff;\r\n  display: flex;\r\n  align-items: flex-start;\n}\n.card-item__date[data-v-5a4fa79c] {\r\n  flex-wrap: wrap;\r\n  font-size: 18px;\r\n  margin-left: auto;\r\n  padding: 10px;\r\n  display: inline-flex;\r\n  width: 80px;\r\n  white-space: nowrap;\r\n  flex-shrink: 0;\r\n  cursor: pointer;\n}\n@media screen and (max-width: 480px) {\n.card-item__date[data-v-5a4fa79c] {\r\n    font-size: 16px;\n}\n}\n.card-item__dateItem[data-v-5a4fa79c] {\r\n  position: relative;\n}\n.card-item__dateItem span[data-v-5a4fa79c] {\r\n  width: 22px;\r\n  display: inline-block;\n}\n.card-item__dateTitle[data-v-5a4fa79c] {\r\n  opacity: 0.7;\r\n  font-size: 13px;\r\n  padding-bottom: 6px;\r\n  width: 100%;\n}\n@media screen and (max-width: 480px) {\n.card-item__dateTitle[data-v-5a4fa79c] {\r\n    font-size: 12px;\r\n    padding-bottom: 5px;\n}\n}\n.card-item__band[data-v-5a4fa79c] {\r\n  background: rgba(0, 0, 19, 0.8);\r\n  width: 100%;\r\n  height: 50px;\r\n  margin-top: 30px;\r\n  position: relative;\r\n  z-index: 2;\n}\n@media screen and (max-width: 480px) {\n.card-item__band[data-v-5a4fa79c] {\r\n    margin-top: 20px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__band[data-v-5a4fa79c] {\r\n    height: 40px;\r\n    margin-top: 10px;\n}\n}\n.card-item__cvv[data-v-5a4fa79c] {\r\n  text-align: right;\r\n  position: relative;\r\n  z-index: 2;\r\n  padding: 15px;\n}\n.card-item__cvv .card-item__type[data-v-5a4fa79c] {\r\n  opacity: 0.7;\n}\n@media screen and (max-width: 360px) {\n.card-item__cvv[data-v-5a4fa79c] {\r\n    padding: 10px 15px;\n}\n}\n.card-item__cvvTitle[data-v-5a4fa79c] {\r\n  padding-right: 10px;\r\n  font-size: 15px;\r\n  font-weight: 500;\r\n  color: #fff;\r\n  margin-bottom: 5px;\n}\n.card-item__cvvBand[data-v-5a4fa79c] {\r\n  height: 45px;\r\n  background: #fff;\r\n  margin-bottom: 30px;\r\n  text-align: right;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: flex-end;\r\n  padding-right: 10px;\r\n  color: #1a3b5d;\r\n  font-size: 18px;\r\n  border-radius: 4px;\r\n  box-shadow: 0px 10px 20px -7px rgba(32, 56, 117, 0.35);\n}\n@media screen and (max-width: 480px) {\n.card-item__cvvBand[data-v-5a4fa79c] {\r\n    height: 40px;\r\n    margin-bottom: 20px;\n}\n}\n@media screen and (max-width: 360px) {\n.card-item__cvvBand[data-v-5a4fa79c] {\r\n    margin-bottom: 15px;\n}\n}\n.card-list[data-v-5a4fa79c] {\r\n  margin-bottom: -130px;\n}\n@media screen and (max-width: 480px) {\n.card-list[data-v-5a4fa79c] {\r\n    margin-bottom: -120px;\n}\n}\n.card-input[data-v-5a4fa79c] {\r\n  margin-bottom: 20px;\n}\n.card-input__label[data-v-5a4fa79c] {\r\n  font-size: 14px;\r\n  margin-bottom: 5px;\r\n  font-weight: 500;\r\n  color: #1a3b5d;\r\n  width: 100%;\r\n  display: block;\r\n  -webkit-user-select: none;\r\n     -moz-user-select: none;\r\n      -ms-user-select: none;\r\n          user-select: none;\n}\n.card-input__input[data-v-5a4fa79c] {\r\n  width: 100%;\r\n  height: 50px;\r\n  border-radius: 5px;\r\n  box-shadow: none;\r\n  border: 1px solid #ced6e0;\r\n  transition: all 0.3s ease-in-out;\r\n  font-size: 18px;\r\n  padding: 5px 15px;\r\n  background: none;\r\n  color: #1a3b5d;\r\n  font-family: \"Source Sans Pro\", sans-serif;\n}\n.card-input__input[data-v-5a4fa79c]:hover, .card-input__input[data-v-5a4fa79c]:focus {\r\n  border-color: #3d9cff;\n}\n.card-input__input[data-v-5a4fa79c]:focus {\r\n  box-shadow: 0px 10px 20px -13px rgba(32, 56, 117, 0.35);\n}\n.card-input__input.-select[data-v-5a4fa79c] {\r\n  -webkit-appearance: none;\r\n  background-image: url(\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAeCAYAAABuUU38AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUxJREFUeNrM1sEJwkAQBdCsngXPHsQO9O5FS7AAMVYgdqAd2IGCDWgFnryLFQiCZ8EGnJUNimiyM/tnk4HNEAg/8y6ZmMRVqz9eUJvRaSbvutCZ347bXVJy/ZnvTmdJ862Me+hAbZCTs6GHpyUi1tTSvPnqTpoWZPUa7W7ncT3vK4h4zVejy8QzM3WhVUO8ykI6jOxoGA4ig3BLHcNFSCGqGAkig2yqgpEiMsjSfY9LxYQg7L6r0X6wS29YJiYQYecemY+wHrXD1+bklGhpAhBDeu/JfIVGxaAQ9sb8CI+CQSJ+QmJg0Ii/EE2MBiIXooHRQhRCkBhNhBcEhLkwf05ZCG8ICCOpk0MULmvDSY2M8UawIRExLIQIEgHDRoghihgRIgiigBEjgiFATBACAgFgghEwSAAGgoBCBBgYAg5hYKAIFYgHBo6w9RRgAFfy160QuV8NAAAAAElFTkSuQmCC\");\r\n  background-size: 12px;\r\n  background-position: 90% center;\r\n  background-repeat: no-repeat;\r\n  padding-right: 30px;\n}\n.slide-fade-up-enter-active[data-v-5a4fa79c] {\r\n  transition: all 0.25s ease-in-out;\r\n  transition-delay: 0.1s;\r\n  position: relative;\n}\n.slide-fade-up-leave-active[data-v-5a4fa79c] {\r\n  transition: all 0.25s ease-in-out;\r\n  position: absolute;\n}\n.slide-fade-up-enter[data-v-5a4fa79c] {\r\n  opacity: 0;\r\n  transform: translateY(15px);\r\n  pointer-events: none;\n}\n.slide-fade-up-leave-to[data-v-5a4fa79c] {\r\n  opacity: 0;\r\n  transform: translateY(-15px);\r\n  pointer-events: none;\n}\n.slide-fade-right-enter-active[data-v-5a4fa79c] {\r\n  transition: all 0.25s ease-in-out;\r\n  transition-delay: 0.1s;\r\n  position: relative;\n}\n.slide-fade-right-leave-active[data-v-5a4fa79c] {\r\n  transition: all 0.25s ease-in-out;\r\n  position: absolute;\n}\n.slide-fade-right-enter[data-v-5a4fa79c] {\r\n  opacity: 0;\r\n  transform: translateX(10px) rotate(45deg);\r\n  pointer-events: none;\n}\n.slide-fade-right-leave-to[data-v-5a4fa79c] {\r\n  opacity: 0;\r\n  transform: translateX(-10px) rotate(45deg);\r\n  pointer-events: none;\n}\n.github-btn[data-v-5a4fa79c] {\r\n  position: absolute;\r\n  right: 40px;\r\n  bottom: 50px;\r\n  text-decoration: none;\r\n  padding: 15px 25px;\r\n  border-radius: 4px;\r\n  box-shadow: 0px 4px 30px -6px rgba(36, 52, 70, 0.65);\r\n  background: #24292e;\r\n  color: #fff;\r\n  font-weight: bold;\r\n  letter-spacing: 1px;\r\n  font-size: 16px;\r\n  text-align: center;\r\n  transition: all 0.3s ease-in-out;\n}\n@media screen and (min-width: 500px) {\n.github-btn[data-v-5a4fa79c]:hover {\r\n    transform: scale(1.1);\r\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n}\n}\n@media screen and (max-width: 700px) {\n.github-btn[data-v-5a4fa79c] {\r\n    position: relative;\r\n    bottom: auto;\r\n    right: auto;\r\n    margin-top: 20px;\n}\n.github-btn[data-v-5a4fa79c]:active {\r\n    transform: scale(1.1);\r\n    box-shadow: 0px 17px 20px -6px rgba(36, 52, 70, 0.36);\n}\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -9518,7 +9524,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#card-element {\n    margin-top: 1rem;\n    height: 50px;\n    padding: 0.4rem 2rem;\n    border-radius: 4px;\n    border: 2px solid #e4e4e4;\n    transition: all .15s ease-in-out;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#card-element {\r\n    margin-top: 1rem;\r\n    height: 50px;\r\n    padding: 0.4rem 2rem;\r\n    border-radius: 4px;\r\n    border: 2px solid #e4e4e4;\r\n    transition: all .15s ease-in-out;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -74591,43 +74597,6 @@ var render = function() {
                                     staticClass: "custom-control-input",
                                     attrs: {
                                       type: "radio",
-                                      id: "payment_method_merchant",
-                                      name: "payment_method",
-                                      value: "9"
-                                    },
-                                    domProps: {
-                                      checked: _vm._q(_vm.payment_method, "9")
-                                    },
-                                    on: {
-                                      change: function($event) {
-                                        _vm.payment_method = "9"
-                                      }
-                                    }
-                                  }),
-                                  _vm._v(" "),
-                                  _c(
-                                    "label",
-                                    {
-                                      staticClass: "custom-control-label",
-                                      attrs: { for: "payment_method_merchant" }
-                                    },
-                                    [_vm._v("Pay By Card")]
-                                  )
-                                ]),
-                                _vm._v(" "),
-                                _c("div", { staticClass: "radio-inline" }, [
-                                  _c("input", {
-                                    directives: [
-                                      {
-                                        name: "model",
-                                        rawName: "v-model",
-                                        value: _vm.payment_method,
-                                        expression: "payment_method"
-                                      }
-                                    ],
-                                    staticClass: "custom-control-input",
-                                    attrs: {
-                                      type: "radio",
                                       id: "payment_method_bank",
                                       name: "payment_method",
                                       value: "10"
@@ -74746,6 +74715,24 @@ var render = function() {
                   (
                     parseFloat(_vm.total) - parseFloat(_vm.promocode_reward)
                   ).toFixed(2) > 0
+                    ? _c("h3", [
+                        _c("small", {
+                          staticStyle: { color: "red" },
+                          domProps: {
+                            innerHTML: _vm._s(_vm.event.card_payment_info)
+                          }
+                        })
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.payment_method == 2 &&
+                  _vm.total > 0 &&
+                  _vm.register_user_id &&
+                  _vm.is_admin <= 0 &&
+                  _vm.isStripe > 0 &&
+                  (
+                    parseFloat(_vm.total) - parseFloat(_vm.promocode_reward)
+                  ).toFixed(2) > 0
                     ? _c("stripe-component", {
                         ref: "stripe",
                         attrs: {
@@ -74755,24 +74742,6 @@ var render = function() {
                           stripeSecretKey: _vm.stripe_secret_key
                         }
                       })
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _vm.payment_method == 9 &&
-                  _vm.register_user_id &&
-                  (
-                    parseFloat(_vm.total) - parseFloat(_vm.promocode_reward)
-                  ).toFixed(2) > 0
-                    ? _c("Merchant", { attrs: { event: _vm.event } })
-                    : _vm._e(),
-                  _vm.payment_method == 9
-                    ? _c("h3", [
-                        _c("small", {
-                          staticStyle: { color: "red" },
-                          domProps: {
-                            innerHTML: _vm._s(_vm.event.card_payment_info)
-                          }
-                        })
-                      ])
                     : _vm._e(),
                   _vm._v(" "),
                   _vm.payment_method == 3 &&
@@ -75264,7 +75233,32 @@ var render = function() {
               )
             }
           }
-        })
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has(
+                  "name_" + _vm.ticket_index + "_" + _vm.quantity_index
+                ),
+                expression:
+                  "errors.has('name_'+ticket_index+'_'+quantity_index)"
+              }
+            ],
+            staticClass: "help text-danger"
+          },
+          [
+            _vm._v(
+              _vm._s(_vm.trans("em.attendee")) +
+                " " +
+                _vm._s(_vm.trans("em.required"))
+            )
+          ]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-3" }, [
@@ -75286,7 +75280,7 @@ var render = function() {
           staticClass: "form-control",
           staticStyle: { height: "auto !important" },
           attrs: {
-            type: "text",
+            type: "number",
             name: "phone_" + _vm.ticket_index + "_" + _vm.quantity_index,
             placeholder: _vm.trans("em.phone") + "*"
           },
@@ -75305,7 +75299,26 @@ var render = function() {
               )
             }
           }
-        })
+        }),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.errors.has(
+                  "phone_" + _vm.ticket_index + "_" + _vm.quantity_index
+                ),
+                expression:
+                  "errors.has('phone_'+ticket_index+'_'+quantity_index)"
+              }
+            ],
+            staticClass: "help text-danger"
+          },
+          [_vm._v("Attendee phone required")]
+        )
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-md-6" }, [
@@ -75346,12 +75359,8 @@ var render = function() {
               )
             }
           }
-        })
-      ])
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
+        }),
+        _vm._v(" "),
         _c(
           "span",
           {
@@ -75359,29 +75368,16 @@ var render = function() {
               {
                 name: "show",
                 rawName: "v-show",
-                value:
-                  _vm.errors.has(
-                    "name_" + _vm.ticket_index + "_" + _vm.quantity_index
-                  ) ||
-                  _vm.errors.has(
-                    "name_" + _vm.ticket_index + "_" + _vm.quantity_index
-                  ) ||
-                  _vm.errors.has(
-                    "address_" + _vm.ticket_index + "_" + _vm.quantity_index
-                  ),
+                value: _vm.errors.has(
+                  "address_" + _vm.ticket_index + "_" + _vm.quantity_index
+                ),
                 expression:
-                  "errors.has('name_'+ticket_index+'_'+quantity_index) || errors.has('name_'+ticket_index+'_'+quantity_index) || errors.has('address_'+ticket_index+'_'+quantity_index)"
+                  "errors.has('address_'+ticket_index+'_'+quantity_index)"
               }
             ],
             staticClass: "help text-danger"
           },
-          [
-            _vm._v(
-              _vm._s(_vm.trans("em.attendee")) +
-                " " +
-                _vm._s(_vm.trans("em.required"))
-            )
-          ]
+          [_vm._v("Attendee address required")]
         )
       ])
     ])

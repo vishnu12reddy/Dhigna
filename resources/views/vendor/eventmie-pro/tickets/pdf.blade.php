@@ -79,7 +79,7 @@
                         <table>
                             <tr>
                                 <td style="padding: 10px;width: 40%;" class="text-right">
-                                    <img src="{{ "data:image/png;base64,".base64_encode(file_get_contents(public_path('/storage/'.setting('site.logo')))) }}" style="width: 64px;">
+                                    <img src="https://events.dhigna.com/storage/settings/November2022/pdflogo.png" style="width: 64px;">
                                 </td>
                                 <td style="padding: 10px;width: 60%;" class="text-left">
                                     <p class="m-heading">{{ (setting('site.site_name') ? setting('site.site_name') : config('app.name')) }}</p>

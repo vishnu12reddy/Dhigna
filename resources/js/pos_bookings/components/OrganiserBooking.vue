@@ -96,9 +96,9 @@
                             </td>
                             <td :data-title="trans('em.download')">
                                 <div v-if="hide_ticket_download == null">
-                                    <a v-if="booking.is_paid == 1 && booking.status == 1" class="lgx-btn lgx-btn-sm lgx-btn-success" :href="downloadURL(booking.id, booking.order_number)"><i class="fas fa-download"></i> {{trans('em.ticket')}}</a>
+                                    <a v-if="booking.is_paid == 1 && booking.status == 1" class="lgx-btn lgx-btn-sm lgx-btn-success" :href="downloadURL(booking.id, booking.order_number)" target="_blank" ><i class="fas fa-download"></i> {{trans('em.ticket')}}</a>
                                     <!-- CUSTOM -->
-                                    <a v-if="booking.is_paid == 1 && booking.status == 1" class="lgx-btn lgx-btn-sm lgx-btn-success" :href="downloadInvoice(booking.id)"><i class="fas fa-download"></i> {{trans('em.invoice')}}</a>
+                                    <a v-if="booking.is_paid == 1 && booking.status == 1" class="lgx-btn lgx-btn-sm lgx-btn-success" :href="downloadInvoice(booking.id)" target="_blank" ><i class="fas fa-download"></i> {{trans('em.invoice')}}</a>
                                     <!-- CUSTOM -->
                                     <span class="lgx-badge lgx-badge-small lgx-badge-mute" v-else>
                                         <small v-if="booking.is_paid == 0 && booking.status == 1" class="text-small text-danger">{{ trans('em.unpaid') }}</small>

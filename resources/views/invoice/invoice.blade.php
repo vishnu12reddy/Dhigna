@@ -181,7 +181,7 @@
                     <table style="padding: 0;margin: 0;width: 100%">
                         <tr>
                             <td style="width: 10%;">
-                                <img src="{{ "data:image/png;base64,".base64_encode(file_get_contents(public_path('/storage/'.setting('site.logo')))) }}" style="width: 64px;">
+                                <img src="https://events.dhigna.com/storage/settings/November2022/pdflogo.png" style="width: 64px;">
                             </td>
                             <td style="width: 80%;">
                                 <p class="m-heading">{{ (setting('site.site_name') ? setting('site.site_name') : config('app.name')) }}</p>
