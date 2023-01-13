@@ -22,16 +22,16 @@ use Illuminate\Http\Response;
 
 class BookingsController extends BaseBookingsController
 {
- 
+
     public function __construct()
     {
         // disable modification functions that are not managed from admin panel
         $route_name     = "voyager.bookings";
         $enable_routes = [
-            "$route_name.index", 
-            "$route_name.show", 
-            "$route_name.edit", 
-            "$route_name.update", 
+            "$route_name.index",
+            "$route_name.show",
+            "$route_name.edit",
+            "$route_name.update",
             "$route_name.destroy",
             //CUSTOM
             "$route_name.bulk_bookings",
@@ -42,18 +42,17 @@ class BookingsController extends BaseBookingsController
             "$route_name.bulk_export"
             //CUSTOM
         ];
-        if(! in_array(\Route::current()->getName(), $enable_routes))
-        {
+        if (!in_array(\Route::current()->getName(), $enable_routes)) {
             return redirect()->route('voyager.bookings.index')->send();
         }
         // ---------------------------------------------------------------------
 
-        $this->commission   = new Commission;  
+        $this->commission   = new Commission;
 
         //CUSTOM
-        $this->transaction   = new Transaction; 
+        $this->transaction   = new Transaction;
         $this->booking       = new Booking;
-        $this->event         = new Event;  
+        $this->event         = new Event;
         //CUSTOM
     }
 
@@ -67,7 +66,7 @@ class BookingsController extends BaseBookingsController
 
         // GET THE DataType based on the slug
         $dataType = Voyager::model('DataType')->where('slug', '=', $slug)->first();
-        
+
         // Check permission
         $this->authorize('browse', app($dataType->model_name));
 
@@ -78,9 +77,9 @@ class BookingsController extends BaseBookingsController
         $searchNames = [];
         if ($dataType->server_side) {
             $searchable = SchemaManager::describeTable(app($dataType->model_name)->getTable())->pluck('name')->toArray();
-            
+
             $dataRow = Voyager::model('DataRow')->whereDataTypeId($dataType->id)->get();
-            
+
 
             foreach ($searchable as $key => $value) {
                 $field = $dataRow->where('field', $value)->first();
@@ -101,11 +100,10 @@ class BookingsController extends BaseBookingsController
         if (strlen($dataType->model_name) != 0) {
             $model = app($dataType->model_name);
 
-            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope' . ucfirst($dataType->scope))) {
                 $query = $model->{$dataType->scope}();
             } else {
                 $query = $model::select('*', DB::raw('COUNT(ticket_id) as bulk_quantity'))->groupBy('ticket_id', 'bulk_code');
-                
             }
 
             // Use withTrashed() if model uses SoftDeletes and if toggle is selected
@@ -123,7 +121,7 @@ class BookingsController extends BaseBookingsController
 
             if ($search->value != '' && $search->key && $search->filter) {
                 $search_filter = ($search->filter == 'equals') ? '=' : 'LIKE';
-                $search_value = ($search->filter == 'equals') ? $search->value : '%'.$search->value.'%';
+                $search_value = ($search->filter == 'equals') ? $search->value : '%' . $search->value . '%';
                 $query->where($search->key, $search_filter, $search_value);
             }
 
@@ -146,7 +144,7 @@ class BookingsController extends BaseBookingsController
             $dataTypeContent = call_user_func([DB::table($dataType->name), $getter]);
             $model = false;
         }
-        
+
         // Check if BREAD is Translatable
         $isModelTranslatable = is_bread_translatable($model);
 
@@ -193,9 +191,9 @@ class BookingsController extends BaseBookingsController
 
         // if have booking email data then send booking notification
         $is_success = !empty(session('booking_email_data')) ? 1 : 0;
-        
+
         $view = 'vendor.eventmie-pro.vendor.voyager.bookings.bulk';
-        
+
         return Eventmie::view($view, compact(
             'actions',
             'dataType',
@@ -213,7 +211,7 @@ class BookingsController extends BaseBookingsController
             'showCheckboxColumn',
             'is_success'
         ));
-    }    
+    }
 
     /**
      *  bulk booking edit
@@ -234,7 +232,7 @@ class BookingsController extends BaseBookingsController
             if ($model && in_array(SoftDeletes::class, class_uses_recursive($model))) {
                 $model = $model->withTrashed();
             }
-            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+            if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope' . ucfirst($dataType->scope))) {
                 $model = $model->{$dataType->scope}();
             }
             $dataTypeContent = call_user_func([$model, 'findOrFail'], $id);
@@ -270,15 +268,14 @@ class BookingsController extends BaseBookingsController
     public function bulk_bookings_update(Request $request, $id)
     {
         // demo mode restrictions
-        if(config('voyager.demo_mode'))
-        {
+        if (config('voyager.demo_mode')) {
             return redirect()
-                    ->route("voyager.users.index")
-                    ->with([
-                        'message'    => 'Demo mode',
-                        'alert-type' => 'info',
-                    ])
-                    ->send();
+                ->route("voyager.users.index")
+                ->with([
+                    'message'    => 'Demo mode',
+                    'alert-type' => 'info',
+                ])
+                ->send();
         }
 
         /* VoyagerUserController update method */
@@ -304,7 +301,7 @@ class BookingsController extends BaseBookingsController
         //CUSTOM
         $model = app($dataType->model_name)->withoutGlobalScope(BulkScope::class);
         //CUSTOM
-        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope'.ucfirst($dataType->scope))) {
+        if ($dataType->scope && $dataType->scope != '' && method_exists($model, 'scope' . ucfirst($dataType->scope))) {
             $model = $model->{$dataType->scope}();
         }
         if ($model && in_array(SoftDeletes::class, class_uses_recursive($model))) {
@@ -335,14 +332,14 @@ class BookingsController extends BaseBookingsController
 
         /* CUSTOM */
         // If approved customer to organizer
-        if($request->role_id > $currentRoleId) {
+        if ($request->role_id > $currentRoleId) {
             $this->approvedOrganiserNotification($data);
         }
-        
+
         /* CUSTOM */
 
         return $redirect->with([
-            'message'    => __('voyager::generic.successfully_updated')." {$dataType->getTranslatedAttribute('display_name_singular')}",
+            'message'    => __('voyager::generic.successfully_updated') . " {$dataType->getTranslatedAttribute('display_name_singular')}",
             'alert-type' => 'success',
         ]);
     }
@@ -350,7 +347,7 @@ class BookingsController extends BaseBookingsController
     /**
      *  Delete
      */
-    
+
     /**
      *   only admin can delete booking
      */
@@ -358,35 +355,32 @@ class BookingsController extends BaseBookingsController
     public function bulk_bookings_delete($id = null)
     {
         // only admin can delete booking
-        if(Auth::check() && !Auth::user()->hasRole('admin'))
-        {
+        if (Auth::check() && !Auth::user()->hasRole('admin')) {
             return redirect()->route('eventmie.events');
         }
 
         // get event by event_slug
-        if(empty($id))
-            return error('Booking Not Found!', Response::HTTP_BAD_REQUEST );
-        
+        if (empty($id))
+            return error('Booking Not Found!', Response::HTTP_BAD_REQUEST);
+
         $params    = [
             'id'     => $id,
         ];
 
         $delete_booking     = Booking::withoutGlobalScope(BulkScope::class)->where($params)->delete();
 
-        if(empty($delete_booking))
-        {
-            return error(__('eventmie-pro::em.booking_deleted_fail'), Response::HTTP_BAD_REQUEST );   
+        if (empty($delete_booking)) {
+            return error(__('eventmie-pro::em.booking_deleted_fail'), Response::HTTP_BAD_REQUEST);
         }
 
         $msg = __('eventmie-pro::em.booking_deleted');
-        
+
         return redirect()
-        ->route("voyager.bookings.bulk_bookings")
-        ->with([
-            'message'    => $msg,
-            'alert-type' => 'success',
-        ]);
-        
+            ->route("voyager.bookings.bulk_bookings")
+            ->with([
+                'message'    => $msg,
+                'alert-type' => 'success',
+            ]);
     }
 
     /**
@@ -394,26 +388,25 @@ class BookingsController extends BaseBookingsController
      */
     public function bulk_bookings_show($id = null, $view = 'eventmie::bookings.show', $extra = [])
     {
-        
-        $id    = (int) $id;
-        $organiser_id  = Auth::id(); 
 
-        if(!$id)
-              // redirect no matter what so that it never turns back
-              return response(['status'=>__('eventmie-pro::em.invalid').' '.__('eventmie-pro::em.data'), 'url'=>'/events'], Response::HTTP_OK);    
+        $id    = (int) $id;
+        $organiser_id  = Auth::id();
+
+        if (!$id)
+            // redirect no matter what so that it never turns back
+            return response(['status' => __('eventmie-pro::em.invalid') . ' ' . __('eventmie-pro::em.data'), 'url' => '/events'], Response::HTTP_OK);
 
         // admin can see booking detail page
-        if(Auth::user()->hasRole('admin'))
-        {
+        if (Auth::user()->hasRole('admin')) {
             // when admin wiil be login and he can see booking help or organiser id
             $params   = [
                 'id'  => $id,
             ];
 
             $booking   = Booking::withoutGlobalScope(BulkScope::class)->where($params)->first();
-            if(empty($booking))
+            if (empty($booking))
                 // redirect no matter what so that it never turns back
-                return success_redirect(__('eventmie-pro::em.booking').' '.__('eventmie-pro::em.not_found'), route('eventmie.events_index'));  
+                return success_redirect(__('eventmie-pro::em.booking') . ' ' . __('eventmie-pro::em.not_found'), route('eventmie.events_index'));
 
             $organiser_id  = $booking->organiser_id;
         }
@@ -424,26 +417,24 @@ class BookingsController extends BaseBookingsController
         ];
 
         // get customer booking by orgniser
-        $booking = Booking::withoutGlobalScope(BulkScope::class)->where($params)->first();   
-    
-        if(empty($booking))
-        {
+        $booking = Booking::withoutGlobalScope(BulkScope::class)->where($params)->first();
+
+        if (empty($booking)) {
             // redirect no matter what so that it never turns back
-            return success_redirect(__('eventmie-pro::em.booking').' '.__('eventmie-pro::em.not_found'), route('eventmie.events_index'));  
-        }    
+            return success_redirect(__('eventmie-pro::em.booking') . ' ' . __('eventmie-pro::em.not_found'), route('eventmie.events_index'));
+        }
 
         $currency   = setting('regional.currency_default');
-        
+
         $params = [
             'transaction_id' => $booking['transaction_id'],
             'order_number'   => $booking['order_number']
         ];
 
         // get transaction information by orgniser for this booking
-        $payment = $this->transaction->organiser_payment_info($params);   
-        
-        return Eventmie::view($view, compact('booking', 'payment', 'currency', 'extra'));
+        $payment = $this->transaction->organiser_payment_info($params);
 
+        return Eventmie::view($view, compact('booking', 'payment', 'currency', 'extra'));
     }
 
     /**
@@ -453,55 +444,54 @@ class BookingsController extends BaseBookingsController
     public function bulk_export_attendees($ticket_id = null, $bulk_code = null)
     {
         // check event is valid or not
-        if(!Auth::user()->hasRole('admin'))
+        if (!Auth::user()->hasRole('admin'))
             abort('404');
-            
+
         $ticket_id      = (int) $ticket_id;
         $bulk_code      = (int)($bulk_code);
 
         // get the booking
-        
+
         $bookings = Booking::withoutGlobalScope(BulkScope::class)->where(['ticket_id' => $ticket_id, 'bulk_code' => $bulk_code])->get()->all();
 
-        if(empty($bookings))
+        if (empty($bookings))
             return error_redirect('Booking Not Found!');
 
         // customize column values
         $bookings_csv = [];
         $bookings_custom = [];
-        foreach($bookings as $key => $item)
-        {
+        foreach ($bookings as $key => $item) {
             $bookings[$key]['event_repetitive'] = $item['event_repetitive'] ? __('eventmie-pro::em.yes') : __('eventmie-pro::em.no');
             $bookings[$key]['is_paid']          = $item['is_paid'] ? __('eventmie-pro::em.yes') : __('eventmie-pro::em.no');
-            
-            
-            if($item['booking_cancel'] == 1)
+
+
+            if ($item['booking_cancel'] == 1)
                 $bookings[$key]['booking_cancel']       = __('eventmie-pro::em.pending');
-            elseif($item['booking_cancel'] == 2)
+            elseif ($item['booking_cancel'] == 2)
                 $bookings[$key]['booking_cancel']       = __('eventmie-pro::em.approved');
-            elseif($item['booking_cancel'] == 3)
+            elseif ($item['booking_cancel'] == 3)
                 $bookings[$key]['booking_cancel']       = __('eventmie-pro::em.refunded');
             else
                 $bookings[$key]['booking_cancel']   = __('eventmie-pro::em.no_cancellation');
 
-            
-            if($item['status'])
+
+            if ($item['status'])
                 $bookings[$key]['status']           = __('eventmie-pro::em.enabled');
             else
                 $bookings[$key]['status']           = __('eventmie-pro::em.disabled');
 
-            
-            $bookings[$key]['checked_in']           = $item['checked_in'].' / '.$item['quantity'];
+
+            $bookings[$key]['checked_in']           = $item['checked_in'] . ' / ' . $item['quantity'];
 
             /* CUSTOM */
             $bookings_custom[$key]['ID']    = $item['id'];
             $bookings_custom[$key]['Order Number']    = $item['order_number'];
             $bookings_custom[$key]['Event Title']    = $item['event_title'];
             $bookings_custom[$key]['Ticket Title']    = $item['ticket_title'];
-            
+
             $bookings[$key]['A'] = json_encode($bookings_custom[$key]);
             /* CUSTOM */
-        }    
+        }
 
         // convert array to collection for csv
         $bookings = collect($bookings);
@@ -510,22 +500,19 @@ class BookingsController extends BaseBookingsController
         // create object of laracsv
         $csvExporter = new \Laracsv\Export();
 
-        
+
         // create csv 
         $csvExporter->build($bookings_custom, [
-            
+
             //events fields which will be include
             'ID',
             'Order Number',
             'Event Title',
             'Ticket Title',
-            
+
         ]);
-        
+
         // download csv
-        $csvExporter->download($bookings[0]['ticket_id'].'-'.$bookings[0]['bulk_code'].'-attendies.csv');
-    } 
-
-    
-
+        $csvExporter->download($bookings[0]['ticket_id'] . '-' . $bookings[0]['bulk_code'] . '-attendies.csv');
+    }
 }
