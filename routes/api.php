@@ -29,7 +29,7 @@ Route::post('/checkout', function (Request $request) {
     return response()->json(['status' => true, 'data' => json_decode($request->data)]);
 });
 
-Route::prefix('/v1')->middleware(['auth:sanctum'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('get/events', function () {
         $events = Event::with('tickets')->paginate(5);
