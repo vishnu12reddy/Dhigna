@@ -40,7 +40,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return json_decode($request->user());
     });
 
+ // Route::post('/checkout', function(Request $request){
+       
+    //     return response()->json(['status' => true, 'data' => $request->all()]);
+    // });
+    
+    Route::get('send/message', [MessagesController::class, 'sendMessage']);
+    Route::get('get/messages', [MessagesController::class, 'getMessages']);
 
+    
     Route::controller(ApiController::class)->group(function () {
         Route::post('events', 'filterEvents');
         Route::get('/categories', 'getCategoryList');
