@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryCollection;
 use App\Http\Resources\EventCollection;
+use App\Http\Resources\EventResource;
 use App\Http\Resources\VenueCollection;
 use App\Models\Event;
 use App\Service\ApiService;
@@ -33,10 +34,19 @@ class ApiController extends Controller
 
         return response()->json(['data' => CategoryCollection::make($category)], 200);
     }
+
     public function getVenueList()
     {
         $venue = Venue::where(['status' => 1])->get();
 
         return response()->json(['data' => VenueCollection::make($venue)], 200);
+    }
+
+    public function getEvent(Request $request)
+    {
+        // return true;
+        $event = Event::findOrFail($request->id);
+
+        return response()->json(['data' => new EventResource($event)], 200);
     }
 }
