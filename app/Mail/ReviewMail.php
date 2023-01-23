@@ -7,11 +7,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Reviewmail extends Mailable
+class ReviewMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    
+
     public $mail;
     /**
      * Create a new message instance.
@@ -21,7 +21,6 @@ class Reviewmail extends Mailable
     public function __construct($mail)
     {
         $this->mail           =  $mail;
-       
     }
 
 
@@ -33,7 +32,7 @@ class Reviewmail extends Mailable
     public function build()
     {
         return  $this->from(setting('mail.mail_sender_email'), setting('mail.mail_sender_name'))
-                ->subject($this->mail['mail_subject'])
-                ->view('email_templates.review');
+            ->subject($this->mail['mail_subject'])
+            ->view('email_templates.review');
     }
 }
