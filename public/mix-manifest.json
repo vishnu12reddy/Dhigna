@@ -1,6 +1,4 @@
 {
-    "/js/events_show_v1.9.js": "/js/events_show_v1.9.js",
-    "/js/bookings_organiser_v1.8.js": "/js/bookings_organiser_v1.8.js",
-    "/js/bookings_customer_v1.8.js": "/js/bookings_customer_v1.8.js",
-    "/js/events_manage_v1.8.js": "/js/events_manage_v1.8.js"
+    "/js/app.js": "/js/app.js",
+    "/js/events_show_v1.9.js": "/js/events_show_v1.9.js"
 }

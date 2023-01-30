@@ -6412,6 +6412,8 @@ Vue.use(vee_validate__WEBPACK_IMPORTED_MODULE_1__["default"]);
       axios.post(post_url, post_data).then(function (res) {
         // on success
         // use vuex to update global sponsors array
+        console.log(res);
+
         if (res.data.status) {
           Swal.hideLoading();
           _this4.disable = false;
@@ -75251,13 +75253,7 @@ var render = function() {
             ],
             staticClass: "help text-danger"
           },
-          [
-            _vm._v(
-              _vm._s(_vm.trans("em.attendee")) +
-                " " +
-                _vm._s(_vm.trans("em.required"))
-            )
-          ]
+          [_vm._v("Attendee name required")]
         )
       ]),
       _vm._v(" "),
