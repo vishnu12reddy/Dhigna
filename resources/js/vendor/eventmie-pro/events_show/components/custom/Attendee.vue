@@ -3,11 +3,11 @@
         <h4 class="lead-caption">#{{ quantity_index+1 }} {{trans('em.attendee')}}</h4>
         <div class="row" >
             <div class="col-md-3">
-                <input type="text" class="form-control" style="height: auto !important;" :name="'name_'+ticket_index+'_'+quantity_index" v-model="$parent.name[ticket_index][quantity_index]" v-validate="'required'" :placeholder="trans('em.name')+'*'">
+                <input type="text" class="form-control"  style="height: auto !important;" :name="'name_'+ticket_index+'_'+quantity_index" v-model="$parent.name[ticket_index][quantity_index]" v-validate="'required'" :placeholder="trans('em.name')+'*'">
                 <span 
                     v-show="errors.has('name_'+ticket_index+'_'+quantity_index)" 
                     class="help text-danger"
-                >{{ trans('em.attendee') }} {{ trans('em.required') }}</span>
+                >Attendee name required</span>
             </div>
 
             <div class="col-md-3">
