@@ -729,3 +729,14 @@
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
+
+.lgx-banner.event-poster {
+    background-color: #00192f;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    min-height: 100vh;
+    -moz-box-shadow: inset 0 68px 100px #00192e;
+    -webkit-box-shadow: inset 0 68px 100px #00192e;
+    box-shadow: inset 0 68px 100px #00192e;
+}

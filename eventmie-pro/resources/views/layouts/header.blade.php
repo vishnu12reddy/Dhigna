@@ -28,7 +28,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <div class="lgx-logo">
-                            <a href="{{ eventmie_url() }}" class="lgx-scroll">
+                            <a href="https://dhigna.com/" class="lgx-scroll">
                                 <img src="/storage/{{ setting('site.logo') }}" alt="{{ setting('site.site_name') }}"/>
                                 <span class="brand-name">{{ setting('site.site_name') }}</span>
                                 <span class="brand-slogan">{{ setting('site.site_slogan') }}</span>
