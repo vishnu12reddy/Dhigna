@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\api\ApiController;
+use App\Http\Controllers\api\BookingController;
 use App\Http\Controllers\api\EventController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,18 +41,23 @@ Route::middleware(['auth:sanctum'])->group(function () {
         return json_decode($request->user());
     });
 
- // Route::post('/checkout', function(Request $request){
-       
+    // Route::post('/checkout', function(Request $request){
+
     //     return response()->json(['status' => true, 'data' => $request->all()]);
     // });
-    
+
     Route::get('send/message', [MessagesController::class, 'sendMessage']);
     Route::get('get/messages', [MessagesController::class, 'getMessages']);
 
-    
+
     Route::controller(ApiController::class)->group(function () {
         Route::post('events', 'filterEvents');
         Route::get('/categories', 'getCategoryList');
         Route::get('/venues', 'getVenueList');
+    });
+
+    Route::controller(BookingController::class)->group(function () {
+        Route::post('/checkout', 'showBooking');
+        Route::post('/show-ticket-details', 'ticketDetail');
     });
 });
