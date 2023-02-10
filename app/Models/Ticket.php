@@ -14,43 +14,40 @@ class Ticket extends BaseModel
     use HasFactory;
 
     public function get_event_tickets($params = [])
-    {   
-        if(!empty($params['ticket_ids']))
-        {
+    {
+        if (!empty($params['ticket_ids'])) {
             $result = Ticket::with([
-                        'taxes', 
-                        'seatchart', 
-                        'attendees',
-                        'attendees.booking',
-                        'promocodes',
-                        'seatchart.seats'  => function ($query) {
-                            // $query->where(['status' => 1]);
-                        },
-                    ])->whereIn('id', $params['ticket_ids'])
-                    ->where('event_id', $params['event_id'])
-                    ->orderBy('price')
-                    ->get();
-        }
-        else
-        {
+                'taxes',
+                'seatchart',
+                'attendees',
+                'attendees.booking',
+                'promocodes',
+                'seatchart.seats'  => function ($query) {
+                    // $query->where(['status' => 1]);
+                },
+            ])->whereIn('id', $params['ticket_ids'])
+                ->where('event_id', $params['event_id'])
+                ->orderBy('price')
+                ->get();
+        } else {
             $result = Ticket::with([
-                        'taxes', 
-                        'seatchart', 
-                        'attendees',
-                        'attendees.booking',
-                        'promocodes',
-                        'seatchart.seats'  => function ($query) {
-                            // $query->where(['status' => 1]);
-                        },
-                    ])->where(['event_id' => $params['event_id'] ])
-                        ->orderBy('price')
-                        ->get();
+                'taxes',
+                'seatchart',
+                'attendees',
+                'attendees.booking',
+                'promocodes',
+                'seatchart.seats'  => function ($query) {
+                    // $query->where(['status' => 1]);
+                },
+            ])->where(['event_id' => $params['event_id']])
+                ->orderBy('price')
+                ->get();
         }
-            
+
         return $result;
     }
 
-      /**
+    /**
      * Get the seatchart record associated with the ticket.
      */
     public function seatchart()
@@ -58,7 +55,7 @@ class Ticket extends BaseModel
         return $this->hasOne(Seatchart::class);
     }
 
-    
+
     /**
      * Get the attendees record associated with the ticket.
      */
@@ -75,5 +72,8 @@ class Ticket extends BaseModel
         return $this->belongsToMany(Promocode::class, 'ticket_promocode');
     }
 
-    
+    public function event()
+    {
+        return $this->hasOne(Event::class, 'id', 'event_id');
+    }
 }

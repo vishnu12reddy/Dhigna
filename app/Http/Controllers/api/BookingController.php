@@ -3,10 +3,16 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\EventResource;
+use App\Http\Resources\EventsShowResource;
+use App\Http\Resources\TicketResource;
+use App\Models\Event;
+use App\Models\Ticket;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
 {
+
     /**
      * showBooking
      *
@@ -15,8 +21,8 @@ class BookingController extends Controller
      */
     public function showBooking(Request $request)
     {
-        
-        return response()->json(["message" => "success"], 200);
+        $event = Event::with(['category'])->where('id', $request->id)->first();
+        return  new EventResource($event);
     }
 
     /**
@@ -27,6 +33,7 @@ class BookingController extends Controller
      */
     public function ticketDetail(Request $request)
     {
-        return response()->json(["message" => "success"], 200);
+        $ticketInfo = Ticket::where('event_id', $request->id)->get();
+        return  TicketResource::collection($ticketInfo);
     }
 }

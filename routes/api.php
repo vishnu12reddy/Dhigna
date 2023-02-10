@@ -57,7 +57,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 
     Route::controller(BookingController::class)->group(function () {
-        Route::post('/checkout', 'showBooking');
-        Route::post('/show-ticket-details', 'ticketDetail');
+        Route::post('/show-booking-info', 'showBooking')->name('checkout');
+        Route::post('/show-ticket-details', 'ticketDetail')->name('ticketDetails');
     });
 });

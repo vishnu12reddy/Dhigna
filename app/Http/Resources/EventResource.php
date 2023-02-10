@@ -14,6 +14,19 @@ class EventResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        if ($request->routeIs('checkout')) {
+            return [
+
+                'category_name' => $this->whenLoaded('category')->name,
+                'venue' => $this->venue,
+                'start_date' => $this->start_date,
+                'end_date' => $this->end_date,
+                'start_time' => $this->start_time,
+                'end_time' => $this->end_time,
+            ];
+        } else {
+
+            return parent::toArray($request);
+        }
     }
 }
